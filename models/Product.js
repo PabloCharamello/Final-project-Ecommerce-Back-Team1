@@ -9,10 +9,10 @@ module.exports = (sequelize, Model, DataTypes) => {
         autoIncrement: true,
       },
       name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(140),
       },
       "short-description": {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
       },
       description: {
         type: DataTypes.TEXT,
@@ -21,10 +21,13 @@ module.exports = (sequelize, Model, DataTypes) => {
         type: DataTypes.DECIMAL,
       },
       stock: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER.UNSIGNED,
       },
-      photos: {
-        type: DataTypes.DECIMAL,
+      images: {
+        type: DataTypes.JSON,
+      },
+      featured: {
+        type: DataTypes.BOOLEAN,
       },
     },
     {

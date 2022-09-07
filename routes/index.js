@@ -1,9 +1,11 @@
-const publicRoutes = require("./publicRoutes");
-const adminRoutes = require("./adminRoutes");
 const userRoutes = require("./userRoutes");
+const productRoutes = require("./productRoutes");
+const categoryRoutes = require("./categoryRoutes");
+const addressRoutes = require("./addressRoutes");
 
 module.exports = (app) => {
-  app.use(publicRoutes);
-  app.use("/admin", adminRoutes);
-  app.use("/user", userRoutes);
+  app.use("/users", userRoutes);
+  app.use("/users/:userid/address", addressRoutes);
+  app.use("/products", productRoutes);
+  app.use("/categories", categoryRoutes);
 };
