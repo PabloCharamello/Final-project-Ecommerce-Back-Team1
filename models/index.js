@@ -23,4 +23,5 @@ module.exports = {
   sequelize,
   User,
   Product,
+  Category,
 };
