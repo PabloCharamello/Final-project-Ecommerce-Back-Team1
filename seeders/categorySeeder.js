@@ -6,8 +6,8 @@ async function Seeder() {
 
 const { Category } = require("../models");
 async function Seeder() {
-  const Armchair = await Category.create({ name: "Armchair" });
-  return { Armchair };
+  const Armchairs = await Category.create({ name: "Armchairs" });
+  return { Armchairs };
 }
 
 const { Category } = require("../models");
