@@ -11,6 +11,9 @@ module.exports = (sequelize, Model, DataTypes) => {
       name: {
         type: DataTypes.STRING(140),
       },
+      designer: {
+        type: DataTypes.STRING,
+      },
       "short-description": {
         type: DataTypes.STRING,
       },
