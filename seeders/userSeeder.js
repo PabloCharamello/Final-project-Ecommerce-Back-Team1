@@ -1,6 +1,6 @@
 const { User } = require("../models");
 async function Seeder() {
-  const Sofas = await User.create({
+  await User.create({
     firstname: "Sebastian",
     lastname: "Guadalupe",
     email: "seba@mail.com",

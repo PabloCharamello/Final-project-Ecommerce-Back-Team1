@@ -1,6 +1,5 @@
-const { Sofas } = require("./categorySeeder")();
 const { Product } = require("../models");
-const Prado = {
+const PRADO = {
   name: "Prado",
   designer: "Christian Werner",
   "short-description":
@@ -20,20 +19,24 @@ const Prado = {
   categoryId: 1,
 };
 
-const COVER = {
-  name: "Cover",
-  designer: "Marie C Dorner",
+const LOVESEATPUMPKIN = {
+  name: "Loveseat Pumpkin",
+  designer: "Pierre Paulin",
   "short-description":
-    "The name COVER is just as evocative of the concept as it is of the function",
-  description: `TIts comfort and sensuality mask brazen simplicity of use: the cover of COVER can be removed in a matter of seconds, making maintenance almost a pleasure. The cover is draped over the structure like a throw, seeming to hover over it.`,
-  details: `
-  High resilience Bultex foam (36 kg/m3 - 2.7 kPa, 38 kg/m3 - 3.6 kPa). Polyether foam (28 kg/m3 - 4.8 kPa, 34 kg/m3 - 6.4 kPa). Core of the sofa's armrests in molded foam. `,
-  price: 12670,
+    "A unique first edition from the private collection of former French president Georges Pompidou in the Elysée Palace.",
+  description: `A unique first edition from the private collection of former French president Georges Pompidou in the Elysée Palace. As suggested by its name, soft, organic, round shapes and firm seating comfort all characterize the Pumpkin collection. Available as an armchair with or without headrest, loveseat or sofa. An ottoman completes the collection. Resisting its appeal is impossible!`,
+  details: `CONSTRUCTION
+  Base and mid-section in polyether foam 30 kg/m3 - 3,0 kPa, resting on a thermoformed ABS base.
+  Seat and bucket-style enveloping back in molded polyurethane foam 35 kg/m³ - 3.2 kPa with a 'comfort' layer in the same foam.
+  Covers may be removed by a professional. Cover quilted with 100 g/m² polyester on the seat/back, and polyether foam on the exterior of the mid-section.
+  A monocolor model, which may be made up in either fabric or hide. Colored wools compliments perfectly with the spirit of Pumpkin.
+  `,
+  price: 4770,
   stock: 10,
   images: [
-    "https://images.ligne-roset.com/cache/models/2447/ifondperdu/0/1/012jv_c01_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2447/iambiance4/0/1/012ut_c01_2000x2000.jpg",
-    "https://images.ligne-roset.com/cache/models/2447/iambiance3/1/0/10002j_2000x2000.jpg",
+    "https://images.ligne-roset.com/cache/products/137/3d-views/1/4/14110200_115_vue1_1500x1500.jpg",
+    "https://images.ligne-roset.com/cache/products/137/detail/1/4/14110200_det2_1500x1500.jpg",
+    "https://images.ligne-roset.com/cache/products/137/3d-views/1/4/14110200_115_vue8_1500x1500.jpg",
   ],
   featured: true,
   categoryId: 1,
@@ -58,7 +61,7 @@ const PLUMY = {
 
 //***********ARMCHAIR
 
-const Saparella = {
+const SAPARELLA = {
   name: "SAPARELLA",
   designer: "Michel Ducaroy",
   "short-description":
@@ -78,7 +81,7 @@ const Saparella = {
   categoryId: 2,
 };
 
-const AMÉDÉE = {
+const AMEDEE = {
   name: "Amédée",
   designer: "Marie C Dorner",
   "short-description":
@@ -156,7 +159,7 @@ const ODESSA = {
   categoryId: 3,
 };
 
-const ENNÉA = {
+const ENNEA = {
   name: "Ennéa",
   designer: "Vincent Tordjman",
   "short-description":
@@ -259,6 +262,20 @@ const BRIORD = {
   categoryId: 5,
 };
 
-//images.ligne-roset.com/cache/models/2748/ifondperdu/1/0/1006oz_720x393.jpg
+const products = [
+  PRADO,
+  LOVESEATPUMPKIN,
+  PLUMY,
+  SAPARELLA,
+  AMEDEE,
+  ASMARA,
+  VILNA,
+  ODESSA,
+  ENNEA,
+  CHROMEBELL,
+  ASOLA,
+  CALOT,
+  BRIORD,
+];
 
-https: module.exports = async () => await Product.create(Prado);
+module.exports = async () => await Product.bulkCreate(products);
