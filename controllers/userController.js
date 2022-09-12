@@ -5,7 +5,10 @@ const jwt = require("jsonwebtoken");
 async function index(req, res) {}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const user = await User.findByPk(req.params.id);
+  return res.json(user);
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -20,6 +23,7 @@ async function store(req, res) {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
+    phone: req.body.phone,
     password: req.body.password,
   });
   return res.json(user);
