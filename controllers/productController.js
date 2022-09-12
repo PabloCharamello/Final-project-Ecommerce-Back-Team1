@@ -1,7 +1,10 @@
 const { Product } = require("../models");
 
 // Display a listing of the resource.
-async function index(req, res) {}
+async function index(req, res) {
+  const products = await Product.findAll();
+  return res.json(products);
+}
 
 // Display the specified resource.
 async function show(req, res) {

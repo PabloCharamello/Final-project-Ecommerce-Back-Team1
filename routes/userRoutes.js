@@ -7,5 +7,6 @@ userRouter.post("/", userController.store);
 userRouter.get("/:id", userController.show);
 userRouter.put("/:id", userController.update);
 userRouter.delete("/:id", userController.destroy);
+userRouter.post("/:token", userController.token);
 
 module.exports = userRouter;
