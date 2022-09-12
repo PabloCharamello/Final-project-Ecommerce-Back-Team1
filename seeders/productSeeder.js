@@ -2,6 +2,7 @@ const { Sofas } = require("./categorySeeder")();
 const { Product } = require("../models");
 const Prado = {
   name: "Prado",
+  designer: "Christian Werner",
   "short-description":
     "Prado has first and foremost been designed based on the study of lifestyles and human nature",
   description: `Typically the design process surrounding a new sofa is heavily focused on aesthetic research. Prado represents a departure from this school of thought completely.
