@@ -6,8 +6,8 @@ async function index(req, res) {}
 
 // Display the specified resource.
 async function show(req, res) {
-  const user = await User.findByPk(req.params.id);
-  return res.json(user);
+  const product = await User.findByPk(req.params.id);
+  return res.json(product);
 }
 
 // Show the form for creating a new resource
@@ -40,7 +40,7 @@ async function destroy(req, res) {}
 
 async function token(req, res) {
   if (!req.body.email || !req.body.password) {
-    return res.status(401).json({ error: "Empty fields" });
+    return res.status(401).json({ error: "Empty fields" }); // Cambiar error por message?
   }
   const { email, password } = req.body;
   const user = await User.findOne({ where: { email } });
@@ -53,12 +53,11 @@ async function token(req, res) {
   }
   const token = jwt.sign(
     {
-      id: user.id,
+      sub: user.id,
     },
     process.env.JWT_SECRET,
   );
-  const response = { token, id: user.id };
-  res.json(response);
+  res.json({ token, id: user.id });
 }
 
 module.exports = {
