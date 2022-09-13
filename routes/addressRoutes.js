@@ -1,6 +1,9 @@
 const express = require("express");
 const addressRouter = express.Router();
 const addressController = require("../controllers/addressController");
+const checkJwt = require("../middleware/checkJwt");
+
+addressRouter.use(checkJwt);
 
 addressRouter.get("/", addressController.index);
 addressRouter.post("/", addressController.store);

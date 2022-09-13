@@ -1,12 +1,13 @@
 const express = require("express");
 const userRouter = express.Router();
 const userController = require("../controllers/userController");
+const checkJwt = require("../middleware/checkJwt");
 
 userRouter.get("/", userController.index);
 userRouter.post("/", userController.store);
-userRouter.get("/:id", userController.show);
-userRouter.put("/:id", userController.update);
-userRouter.delete("/:id", userController.destroy);
+userRouter.get("/:id", checkJwt, userController.show);
+userRouter.put("/:id", checkJwt, userController.update);
+userRouter.delete("/:id", checkJwt, userController.destroy);
 userRouter.post("/:token", userController.token);
 
 module.exports = userRouter;
