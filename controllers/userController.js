@@ -1,5 +1,4 @@
 const { User } = require("../models");
-const jwt = require("jsonwebtoken");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -32,33 +31,10 @@ async function update(req, res) {}
 // Remove the specified resource from storage.
 async function destroy(req, res) {}
 
-async function token(req, res) {
-  if (!req.body.email || !req.body.password) {
-    return res.status(401).json({ message: "Empty fields" });
-  }
-  const { email, password } = req.body;
-  const user = await User.findOne({ where: { email } });
-  if (!user) {
-    return res.status(401).json({ message: "Invalid credentials" });
-  }
-  const valid = await user.isValidPassword(password);
-  if (!valid) {
-    return res.status(401).json({ message: "Invalid credentials" });
-  }
-  const token = jwt.sign(
-    {
-      sub: user.id,
-    },
-    process.env.JWT_SECRET,
-  );
-  res.json({ token, id: user.id });
-}
-
 module.exports = {
   index,
   show,
   store,
   update,
   destroy,
-  token,
 };
