@@ -18,7 +18,8 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.0",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "uuid": "^9.0.0"
   },
   "description": "Hack Academy - E-commerce"
 }

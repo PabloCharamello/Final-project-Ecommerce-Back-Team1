@@ -32,6 +32,14 @@ module.exports = (sequelize, Model, DataTypes) => {
     {
       sequelize,
       modelName: "user",
+      defaultScope: {
+        attributes: { exclude: ["password"] },
+      },
+      scopes: {
+        withPassword: {
+          attributes: {},
+        },
+      },
       hooks: {
         beforeBulkCreate: async (users, options) => {
           for (const user of users) {
@@ -46,7 +54,8 @@ module.exports = (sequelize, Model, DataTypes) => {
   );
 
   User.prototype.isValidPassword = async function (password) {
-    const valid = await bcrypt.compare(password, this.password);
+    const user = await User.scope("withPassword").findByPk(this.id);
+    const valid = await bcrypt.compare(password, user.password);
     return valid;
   };
 
