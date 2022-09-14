@@ -7,7 +7,7 @@ const checkAdmin = require("../middleware/checkAdmin");
 productRouter.get("/", productController.index);
 productRouter.post("/", checkJwt, checkAdmin, productController.store);
 productRouter.get("/:slug", productController.show);
-productRouter.put("/:id", checkJwt, checkAdmin, productController.update);
+productRouter.patch("/:id", checkJwt, checkAdmin, productController.update);
 productRouter.delete("/:id", checkJwt, checkAdmin, productController.destroy);
 
 module.exports = productRouter;

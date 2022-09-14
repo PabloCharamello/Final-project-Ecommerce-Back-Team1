@@ -16,7 +16,14 @@ async function show(req, res) {
 async function store(req, res) {}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  try {
+    await Product.update({ where: { id: req.params.id } });
+    res.status(200).json({ message: "product updated" });
+  } catch (error) {
+    return res.status(500).json({ message: "error in update" });
+  }
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
