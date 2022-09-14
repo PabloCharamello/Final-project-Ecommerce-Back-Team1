@@ -42,7 +42,7 @@ async function store(req, res) {
 
 async function update(req, res) {
   try {
-    const admin = await Admin.update(req.body, { where: { id: req.params.id } });
+    await Admin.update(req.body, { where: { id: req.params.id } });
     return res.json({ message: "updated" });
   } catch (error) {
     console.log(error);
@@ -52,7 +52,7 @@ async function update(req, res) {
 
 async function destroy(req, res) {
   try {
-    const admin = await Admin.destroy({ where: { id: req.params.id } });
+    await Admin.destroy({ where: { id: req.params.id } });
     return res.json({ message: "destroyed" });
   } catch (error) {
     console.log(error);
