@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
 );
 
 const User = require("./User")(sequelize, Model, DataTypes);
+const Admin = require("./Admin")(sequelize, Model, DataTypes);
 const Product = require("./Product")(sequelize, Model, DataTypes);
 const Category = require("./Category")(sequelize, Model, DataTypes);
 
@@ -22,6 +23,7 @@ Category.Product = Category.hasMany(Product);
 module.exports = {
   sequelize,
   User,
+  Admin,
   Product,
   Category,
 };

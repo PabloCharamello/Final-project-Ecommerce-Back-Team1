@@ -6,12 +6,9 @@ async function index(req, res) {}
 
 // Display the specified resource.
 async function show(req, res) {
-  const product = await User.findByPk(req.params.id);
-  return res.json(product);
+  const user = await User.findByPk(req.params.id);
+  return res.json(user);
 }
-
-// Show the form for creating a new resource
-async function create(req, res) {}
 
 // Store a newly created resource in storage.
 async function store(req, res) {
@@ -29,9 +26,6 @@ async function store(req, res) {
   return res.json(user);
 }
 
-// Show the form for editing the specified resource.
-async function edit(req, res) {}
-
 // Update the specified resource in storage.
 async function update(req, res) {}
 
@@ -40,16 +34,16 @@ async function destroy(req, res) {}
 
 async function token(req, res) {
   if (!req.body.email || !req.body.password) {
-    return res.status(401).json({ error: "Empty fields" }); // Cambiar error por message?
+    return res.status(401).json({ message: "Empty fields" });
   }
   const { email, password } = req.body;
   const user = await User.findOne({ where: { email } });
   if (!user) {
-    return res.status(401).json({ error: "Invalid credentials" });
+    return res.status(401).json({ message: "Invalid credentials" });
   }
   const valid = await user.isValidPassword(password);
   if (!valid) {
-    return res.status(401).json({ error: "Invalid credentials" });
+    return res.status(401).json({ message: "Invalid credentials" });
   }
   const token = jwt.sign(
     {
@@ -63,9 +57,7 @@ async function token(req, res) {
 module.exports = {
   index,
   show,
-  create,
   store,
-  edit,
   update,
   destroy,
   token,
