@@ -20,7 +20,10 @@ async function store(req, res) {}
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  const categories = await Category.destroy({ where: { id: req.params.id } });
+  return res.json({ message: "Category destroyed" });
+}
 
 // Otros handlers...
 // ...
