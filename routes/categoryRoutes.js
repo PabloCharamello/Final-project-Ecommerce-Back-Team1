@@ -8,6 +8,6 @@ categoryRouter.get("/", categoryController.index);
 categoryRouter.post("/", checkJwt, checkAdmin, categoryController.store);
 categoryRouter.get("/:slug", categoryController.show);
 categoryRouter.put("/:id", checkJwt, checkAdmin, categoryController.update);
-categoryRouter.delete("/:id", categoryController.destroy);
+categoryRouter.delete("/:id", checkJwt, checkAdmin, categoryController.destroy);
 
 module.exports = categoryRouter;
