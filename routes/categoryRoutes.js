@@ -6,7 +6,7 @@ const checkAdmin = require("../middleware/checkAdmin");
 
 categoryRouter.get("/", categoryController.index);
 categoryRouter.post("/", checkJwt, checkAdmin, categoryController.store);
-categoryRouter.get("/:id", categoryController.show);
+categoryRouter.get("/:slug", categoryController.show);
 categoryRouter.put("/:id", checkJwt, checkAdmin, categoryController.update);
 categoryRouter.delete("/:id", checkJwt, checkAdmin, categoryController.destroy);
 

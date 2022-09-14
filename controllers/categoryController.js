@@ -8,8 +8,8 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const category = await Category.findByPk(req.params.id);
-  const products = await Product.findAll({ where: { categoryId: req.params.id } });
+  const category = await Category.findOne({ where: { slug: req.params.slug } });
+  const products = await Product.findAll({ where: { categoryId: category.id } });
   return res.json({ name: category.name, products });
 }
 

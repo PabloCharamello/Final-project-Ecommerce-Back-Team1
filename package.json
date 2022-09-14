@@ -17,7 +17,8 @@
     "express-jwt": "^7.7.5",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "slugify": "^1.6.5"
   },
   "description": "Hack Academy - E-commerce"
 }

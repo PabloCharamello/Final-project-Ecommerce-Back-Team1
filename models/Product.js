@@ -1,3 +1,5 @@
+const slugify = require("slugify");
+
 module.exports = (sequelize, Model, DataTypes) => {
   class Product extends Model {}
 
@@ -35,10 +37,29 @@ module.exports = (sequelize, Model, DataTypes) => {
       featured: {
         type: DataTypes.BOOLEAN,
       },
+      slug: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,
       modelName: "product",
+      hooks: {
+        beforeBulkCreate: async (products, options) => {
+          for (const product of products) {
+            product.slug = slugify(product.name, {
+              lower: true,
+              strict: true,
+            });
+          }
+        },
+        beforeCreate: async (product, options) => {
+          product.slug = slugify(product.name, {
+            lower: true,
+            strict: true,
+          });
+        },
+      },
     },
   );
 
