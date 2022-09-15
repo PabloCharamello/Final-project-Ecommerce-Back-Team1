@@ -29,7 +29,7 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
         allowNull: false,
         get: function () {
           return this.getDataValue("createdAt").toLocaleString("en-GB");
-        },
+        } /* tal vez ver de cambiar createdAt por alg'un otro m'etodo */,
       },
     },
     {
@@ -41,6 +41,7 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
           for (const product of this.cart.productList) {
             const productDB = await Product.findByPk(product.id);
             if (productDB.stock < product.count) {
+              /* cambiar count por qty*/
               throw new Error("Not enough stock!");
             }
           }

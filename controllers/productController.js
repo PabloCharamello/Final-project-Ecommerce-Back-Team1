@@ -27,8 +27,9 @@ async function update(req, res) {
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  await Product.destroy({ where: { id: req.params.id } });
-  return res.json({ message: "product deleted" });
+  const deletedProduct = await Product.destroy({ where: { id: req.params.id } });
+  if (!deletedProduct) return res.status(404).json({ message: "product not found" });
+  return res.status(200).json({ message: "product deleted" });
 }
 
 // Otros handlers...
