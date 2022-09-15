@@ -8,7 +8,6 @@ addressRouter.use(checkJwt);
 addressRouter.get("/", addressController.index);
 addressRouter.post("/", addressController.store);
 addressRouter.get("/:id", addressController.show);
-addressRouter.put("/:id", addressController.update);
 addressRouter.delete("/:id", addressController.destroy);
 
 module.exports = addressRouter;

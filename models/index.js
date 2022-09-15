@@ -19,20 +19,21 @@ const Order = require("./Order")(sequelize, Model, DataTypes, Product);
 const Address = require("./Address")(sequelize, Model, DataTypes);
 
 // Associations
-Product.Category = Product.belongsTo(Category);
-Category.Product = Category.hasMany(Product);
+Product.belongsTo(Category);
+Category.hasMany(Product);
 
-Order.User = Order.belongsTo(User);
-User.Order = User.hasMany(Order);
+Order.belongsTo(User);
+User.hasMany(Order);
 
-User.Address = User.hasMany(Address);
-Address.User = Address.belongsTo(User);
+User.hasMany(Address);
+Address.belongsTo(User);
 
-Address.Order = Address.hasMany(Order);
-Order.Address = Order.belongsTo(Address);
+// Address.hasOne(Order); I want to write this but sequelize doesn't want me to.
+Order.belongsTo(Address);
+Address.hasMany(Order);
 
-User.Order = User.hasMany(Order);
-Order.User = Order.belongsTo(User);
+User.hasMany(Order);
+Order.belongsTo(User);
 
 module.exports = {
   sequelize,

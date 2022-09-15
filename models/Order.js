@@ -23,25 +23,16 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
       total: {
         type: DataTypes.DECIMAL,
       },
-      createdAt: {
-        type: "TIMESTAMP",
-        defaultValue: new Date(),
-        allowNull: false,
-        get: function () {
-          return this.getDataValue("createdAt").toLocaleString("en-GB");
-        } /* tal vez ver de cambiar createdAt por alg'un otro m'etodo */,
-      },
     },
     {
       sequelize,
       modelName: "order",
-      timestamps: false,
       validate: {
         checkStock: async function () {
-          for (const product of this.cart.productList) {
+          const cart = this.dataValues.cart;
+          for (const product of cart["productsList"]) {
             const productDB = await Product.findByPk(product.id);
-            if (productDB.stock < product.count) {
-              /* cambiar count por qty*/
+            if (productDB.stock < product.quantity) {
               throw new Error("Not enough stock!");
             }
           }
@@ -54,9 +45,12 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
             order.status = "pending";
 
             let total = 0;
-            for (const product of order.cart.productList) {
+            order.cart["productsList"].forEach(async (product) => {
+              const productDB = await Product.findByPk(product.id);
+              productDB.stock -= product.count;
+              productDB.save();
               total += parseFloat(product.price * product.count);
-            }
+            });
             order.total = total;
           }
         },
@@ -65,12 +59,12 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
           order.status = "pending";
 
           let total = 0;
-          for (const product of order.cart.productList) {
+          order.cart["productsList"].forEach(async (product) => {
             const productDB = await Product.findByPk(product.id);
             productDB.stock -= product.count;
             productDB.save();
             total += parseFloat(product.price * product.count);
-          }
+          });
           order.total = total;
         },
       },
