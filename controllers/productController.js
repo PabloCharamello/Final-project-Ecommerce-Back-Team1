@@ -1,4 +1,5 @@
 const { Product } = require("../models");
+const { Op } = require("sequelize");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -8,7 +9,9 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const product = await Product.findOne({ where: { slug: req.params.slug } });
+  const product = await Product.findOne({
+    where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
+  });
   return res.json(product);
 }
 
