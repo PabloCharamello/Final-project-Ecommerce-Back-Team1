@@ -1,4 +1,5 @@
 const { Category, Product } = require("../models");
+const { Op } = require("sequelize");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -8,20 +9,42 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const category = await Category.findOne({ where: { slug: req.params.slug } });
+  const category = await Category.findOne({
+    where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
+  });
   const products = await Product.findAll({ where: { categoryId: category.id } });
   return res.json({ name: category.name, products });
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  try {
+    await Category.create(req.body);
+    return res.json({ message: "category created" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  try {
+    await Category.update(req.body, { where: { id: req.params.id } });
+    return res.json({ message: "category updated" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  const categories = await Category.destroy({ where: { id: req.params.id } });
+  const category = await Category.destroy({ where: { id: req.params.id } });
   return res.json({ message: "Category destroyed" });
 }
 

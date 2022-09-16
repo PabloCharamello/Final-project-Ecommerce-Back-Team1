@@ -17,6 +17,9 @@ async function index(req, res) {
 
 async function store(req, res) {
   try {
+    if (!req.body.payment || !req.body.cart || !req.body.addressId) {
+      throw new Error("Incomplete Order, please specify payment and cart");
+    }
     const order = await Order.create({ ...req.body, userId: req.auth.sub });
     res.json(order);
   } catch (error) {
@@ -26,8 +29,8 @@ async function store(req, res) {
 }
 
 async function update(req, res) {
-  const order = await Order.findOne({ where: { id: req.params.id } });
-  if (order.id !== req.auth.sub) {
+  const order = await Order.findOne({ where: { id: req.params.id }, include: User });
+  if (order.user.id !== req.auth.sub) {
     return res.status(401).json({ message: "Unauthorized" });
   }
   try {
