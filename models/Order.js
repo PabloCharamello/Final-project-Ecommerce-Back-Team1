@@ -64,7 +64,6 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
             productDB.stock -= product.quantity;
             productDB.save();
             order.total += parseFloat(product.price * product.quantity);
-            console.log(order.total);
           }
         },
       },
