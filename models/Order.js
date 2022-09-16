@@ -45,12 +45,12 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
             order.status = "pending";
 
             let total = 0;
-            order.cart["productsList"].forEach(async (product) => {
+            for (const product of order.cart["productsList"]) {
               const productDB = await Product.findByPk(product.id);
-              productDB.stock -= product.count;
+              productDB.stock -= product.quantity;
               productDB.save();
-              total += parseFloat(product.price * product.count);
-            });
+              total += parseFloat(product.price * product.quantity);
+            }
             order.total = total;
           }
         },
@@ -58,14 +58,14 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
           order.id = uuidv4();
           order.status = "pending";
 
-          let total = 0;
-          order.cart["productsList"].forEach(async (product) => {
+          order.total = 0;
+          for (const product of order.cart["productsList"]) {
             const productDB = await Product.findByPk(product.id);
-            productDB.stock -= product.count;
+            productDB.stock -= product.quantity;
             productDB.save();
-            total += parseFloat(product.price * product.count);
-          });
-          order.total = total;
+            order.total += parseFloat(product.price * product.quantity);
+            console.log(order.total);
+          }
         },
       },
     },
