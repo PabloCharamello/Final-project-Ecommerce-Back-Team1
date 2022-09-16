@@ -29,7 +29,7 @@ async function token(req, res) {
     },
     process.env.JWT_SECRET,
   );
-  res.json({ token, id: user.id });
+  res.json({ token, id: user.id, isAdmin });
 }
 
 module.exports = {
