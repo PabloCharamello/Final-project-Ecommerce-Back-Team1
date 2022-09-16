@@ -20,8 +20,6 @@ async function store(req, res) {
   try {
     console.log(req.body);
     const data = req.body;
-    data.price = parseFloat(data.price);
-    data.stock = parseInt(data.stock);
     await Product.create(data);
     res.status(200).json({ message: "product created" });
   } catch (error) {
