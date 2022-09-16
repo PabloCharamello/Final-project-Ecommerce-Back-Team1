@@ -16,12 +16,23 @@ async function show(req, res) {
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  try {
+    console.log(req.body);
+    const data = req.body;
+    data.price = parseFloat(data.price);
+    data.stock = parseInt(data.stock);
+    await Product.create(data);
+    res.status(200).json({ message: "product created" });
+  } catch (error) {
+    return res.status(500).json({ message: error });
+  }
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {
   try {
-    await Product.update({ where: { id: req.params.id } });
+    await Product.update(req.body, { where: { id: req.params.id } });
     res.status(200).json({ message: "product updated" });
   } catch (error) {
     return res.status(500).json({ message: "error in update" });
