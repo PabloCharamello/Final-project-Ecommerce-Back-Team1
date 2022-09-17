@@ -12,6 +12,10 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       slug: {
         type: DataTypes.STRING,

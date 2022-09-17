@@ -4,15 +4,22 @@ const { Op } = require("sequelize");
 // Display a listing of the resource.
 async function index(req, res) {
   const products = await Product.findAll();
-  return res.json(products);
+  return res.status(200).json(products);
 }
 
 // Display the specified resource.
 async function show(req, res) {
-  const product = await Product.findOne({
-    where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
-  });
-  return res.json(product);
+  try {
+    const product = await Product.findOne({
+      where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
+    });
+    if (!product) {
+      return res.status(404).json({ message: "product not found" });
+    }
+    return res.json(product);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 }
 
 // Store a newly created resource in storage.
@@ -20,7 +27,6 @@ async function store(req, res) {
   try {
     console.log(req.body);
     const data = req.body;
-    data.price = parseFloat(data.price);
     data.stock = parseInt(data.stock);
     await Product.create(data);
     res.status(200).json({ message: "product created" });
@@ -32,10 +38,15 @@ async function store(req, res) {
 // Update the specified resource in storage.
 async function update(req, res) {
   try {
-    await Product.update(req.body, { where: { id: req.params.id } });
-    res.status(200).json({ message: "product updated" });
+    const product = await Product.findByPk(req.params.id);
+    if (product) {
+      await Product.update(req.body, { where: { id: req.params.id } });
+      return res.status(200).json({ message: "product updated" });
+    } else {
+      return res.status(404).json({ message: "product not found" });
+    }
   } catch (error) {
-    return res.status(500).json({ message: "error in update" });
+    return res.status(500).json({ message: error.message });
   }
 }
 

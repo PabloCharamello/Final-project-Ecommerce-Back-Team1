@@ -12,24 +12,53 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING(140),
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+        unique: true,
       },
       designer: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       "short-description": {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       description: {
         type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       details: {
         type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       price: {
         type: DataTypes.DECIMAL,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       stock: {
         type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
       images: {
         type: DataTypes.JSON,

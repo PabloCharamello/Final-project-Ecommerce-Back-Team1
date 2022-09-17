@@ -251,6 +251,7 @@ const BRIORD = {
     "According to Rémi Bouhaniche, it was during the first lockdown in 2020, whilst viewing aerial video imagery of the Briord factories",
   description: `Roset is based, that he had the idea : to design a piece of furniture inspired by the landscape conjured up by that aerial view of the Rhône and its meanderings around the Bugey mountains. A homage to wood, with lines with the light but asymmetrical lines of nature.Here, Rémi Bouhaniche plays to the Home Office trend, with a desk which is at once elegant and functional, the sleek lines of which are soft yet precise.
   Black lacquered steel base ; top and drawer in black-stained ash.`,
+  details: "it was during the first lockdown in 2020.",
   price: 2290,
   stock: 10,
   images: [
