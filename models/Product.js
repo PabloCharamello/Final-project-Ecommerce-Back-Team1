@@ -18,13 +18,6 @@ module.exports = (sequelize, Model, DataTypes) => {
         },
         unique: true,
       },
-      designer: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
-      },
       "short-description": {
         type: DataTypes.STRING,
         allowNull: false,

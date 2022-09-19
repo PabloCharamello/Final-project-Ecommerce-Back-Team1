@@ -1,282 +1,617 @@
 const { Product } = require("../models");
-const PRADO = {
-  name: "Prado",
-  designer: "Christian Werner",
-  "short-description":
-    "Prado has first and foremost been designed based on the study of lifestyles and human nature",
-  description: `Typically the design process surrounding a new sofa is heavily focused on aesthetic research. Prado represents a departure from this school of thought completely.
-	Prado has first and foremost been designed based on the study of lifestyles and human nature. We find the same inspirations in Prado that brought us Smala in the earlier part of this century.`,
-  details: `Prado consists of a vast bench seat (available in two sizes: 100*200 cm; 39 3/8'' x 78 3/4'' and 120*240 cm; 47 1/4'' x 94 1/2'') that can be combined and adjusted as desired and onto which back cushions may be placed at will, so that one can sit or lie down as they wish.
-  It offers complete freedom as these cushions, weighted and equipped with a non-slip system, do not need to be rested against or attached to any object for support.`,
-  price: 10585,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/products/3401/3d-views/1/1/11370600_6577_vue1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/3401/3d-views/1/1/11370600_6577_vue3_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/3401/3d-views/1/1/11370600_6577_vue8_1500x1500.jpg",
-  ],
-  featured: true,
-  categoryId: 1,
-};
-
-const LOVESEATPUMPKIN = {
-  name: "Loveseat Pumpkin",
-  designer: "Pierre Paulin",
-  "short-description":
-    "A unique first edition from the private collection of former French president Georges Pompidou in the Elysée Palace.",
-  description: `A unique first edition from the private collection of former French president Georges Pompidou in the Elysée Palace. As suggested by its name, soft, organic, round shapes and firm seating comfort all characterize the Pumpkin collection. Available as an armchair with or without headrest, loveseat or sofa. An ottoman completes the collection. Resisting its appeal is impossible!`,
-  details: `CONSTRUCTION
-  Base and mid-section in polyether foam 30 kg/m3 - 3,0 kPa, resting on a thermoformed ABS base.
-  Seat and bucket-style enveloping back in molded polyurethane foam 35 kg/m³ - 3.2 kPa with a 'comfort' layer in the same foam.
-  Covers may be removed by a professional. Cover quilted with 100 g/m² polyester on the seat/back, and polyether foam on the exterior of the mid-section.
-  A monocolor model, which may be made up in either fabric or hide. Colored wools compliments perfectly with the spirit of Pumpkin.
-  `,
-  price: 4770,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/products/137/3d-views/1/4/14110200_115_vue1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/137/detail/1/4/14110200_det2_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/137/3d-views/1/4/14110200_115_vue8_1500x1500.jpg",
-  ],
-  featured: true,
-  categoryId: 1,
-};
-
-const PLUMY = {
-  name: "Plumy",
-  designer: "Annie Hiéronimus",
-  "short-description":
-    "A reissue of the iconic model introduced over 35 years ago, the Plumy collection was inspired by the 1980s.",
-  description: `Constructed entirely of bonded blocks of polyether and Bultex polyurethane foams of different densities, Plumy's enveloping design is the epitome of comfort and relaxation. All seat and backrest cushions are filled with goose feathers and can be folded into a chaise lounge position to create a customized and relaxing experience. The back-side of the cushions available in 2 versions: in cloth, or upholstered in the main covering material. Seat covers are fully removable and feature a zipper - offered in three color options: matte black, pearl grey or ivory.`,
-  details: `Structuring base in polyether foam (28kg/m3 - 4.0 kPa).`,
-  price: 7295,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2300/ifondperdu/0/1/013jn_c01_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2300/iambiance1/0/1/011y9_1848x1848.jpg",
-  ],
-  featured: true,
-  categoryId: 3,
-};
-
-//***********ARMCHAIR
-
-const SAPARELLA = {
-  name: "SAPARELLA",
-  designer: "Michel Ducaroy",
-  "short-description":
-    "A re-release of a pioneering model from 1965, Saparella consists of a fireside chair, a diabolo and a footstool.",
-  description: `This design, with its rounded, airy lines, is an invitation to relax and to make the most of a beautiful day.
-  The diabolo, the central element, draws inspiration from the toy of the same name. Its concave outline enables elements to be slotted together— into the convex fireside chair—to create a comfortable three seat settee.
-  The settee is made from two fireside chairs with a diabolo in the center. The three elements are held together by a linking-piece made from mirror-polished stainless steel.`,
-  details: `Base and sides in polyether foam 28kg/m3 - 4.8kPa. The three items sit on a ventilated Batyline-type fabric. Water runs off naturally thanks to the convex shape of the seat.`,
-  price: 1980,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/products/3552/3d-views/1/8/18050100_2690_vue1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/3552/3d-views/1/8/18050100_2690_vue3_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/3401/3d-views/1/1/11370600_6577_vue3_1500x1500.jpg",
-  ],
-  featured: true,
-  categoryId: 2,
-};
-
-const AMEDEE = {
-  name: "Amédée",
-  designer: "Marie C Dorner",
-  "short-description":
-    "Amédée is a sofa and armchair combination, designed around a lumbar support which is quilted and stitched just like the bucket seats of the finest Italian automobiles",
-  description: `Chic, urban and thus compact, this family of seating acquires undeniable luxury object status when upholstered in the new full grain, pure aniline Orga leather, with its slightly smooth, glossy finish.`,
-  details: `
-  CONSTRUCTION: structure of seat in 3-layer particleboard; structure of back in thermoformed ABS. Base in black MDF panels in the case of the sofa and fixed armchair, or in 8 mm thick Epoxy black lacquered steel in the case of the swiveling armchair. In the case of the footstool, the structure is in 3-layer particleboard.`,
-  price: 1980,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2465/ifondperdu/0/1/012g2_c01_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2465/iambiance3/0/1/012h5_c01_2000x2000.jpg",
-    "https://images.ligne-roset.com/cache/models/2465/iambiance1/1/0/10002h_2000x2000.jpg",
-  ],
-  featured: true,
-  categoryId: 2,
-};
-
-const ASMARA = {
-  name: "Asmara",
-  designer: "Bernard Govin",
-  "short-description":
-    "A new way of living!'' was the 1968 introduction by American Vogue about Bernard Govin’s U.F.O.",
-  description: `which beautifully embodies this floor-loving style of interior arrangement which has also been called « low look ». After a long period during which it was only to be seen in the collections of the Musée des Arts décoratifs, Asmara is now making its big comeback to the collection for the 160th anniversary of Ligne Roset. Nostalgics, collectors, fans of co-working and above all visionaries will want to seize the opportunity to rediscover this mythical seating, its comfort further improved by the latest innovations from the Roset R&D department! Asmara defines itself as a modular settee in a stretch fabric, the concave shapes of which voluptuously hug the contours of the body in an aesthetically human design.`,
-  details: `
-  CONSTRUCTION: CONSTRUCTION : an all-foam model. Base in polyether foam (elements 501 and 503: 34 kg/m3 – 5.7 kPa ; elements 502 and 504 : 28 kg/m3 – 4.8 kPa).`,
-  price: 9980,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2667/ifondperdu/1/0/10048g_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2667/iambiance3/1/0/1004rf_c01_1848x1848.jpg",
-    "https://images.ligne-roset.com/cache/models/2667/iambiance4/1/0/1004rg_1848x1848.jpg",
-  ],
-  featured: true,
-  categoryId: 2,
-};
-
-//***************************TABLES
-
-const VILNA = {
-  name: "Vilna",
-  designer: "Pagnon & Pelhaître",
-  "short-description":
-    "Extremely refined table, which uses the characteristics of full body stoneware to convey an impression of rarely seen visual elegance. ",
-  description: `Chic, urban and thus compact, this family of seating acquires undeniable luxury object status when upholstered in the new full grain, pure aniline Orga leather, with its slightly smooth, glossy finish.`,
-  details: `
-  CONSTRUCTION: This top, which exceeds by about 12 cm / 4.7'', makes the frame very inconspicuous. The designers present Vilna as an innovative table, an object of design, with its overbearing top and its sharpened metal base.`,
-  price: 4225,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/products/2659/3d-views/0/0/0050fb4n_vue1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/2659/detail/0/0/0050fb4n_det1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/2659/detail/0/0/0050fb4n_det2_1500x1500.jpg",
-  ],
-  featured: true,
-  categoryId: 3,
-};
-
-const ODESSA = {
-  name: "Odessa",
-  designer: "Pagnon & Pelhaître",
-  "short-description":
-    "A vision of natural minimalism with clean-cut shapes and dynamic lines, Odessa is a slender dining table with reassuring characteristics.",
-  description: `Angled like an airplane wing, Odessa's table top, appears to float on top of the double arch of the folded steel feet. The Odessa table is offered in a number of lengths and finishes.`,
-  details: `
-  CONSTRUCTION: RECTANGULAR DINING TABLE BLACK LACQUERED BASE WALNUT, H. 29 x l. 95 x P. 39.`,
-  price: 7670,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/products/1187/3d-views/0/0/0050w49w_vue1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/1187/detail/0/0/0050w49w_det1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/1187/detail/0/0/0050w49w_det2_1500x1500.jpg",
-  ],
-  featured: true,
-  categoryId: 3,
-};
-
-const ENNEA = {
-  name: "Ennéa",
-  designer: "Vincent Tordjman",
-  "short-description":
-    "The Ennea dining table (Ennea stands for the Greek number 9) rests on a base composed of three identical 'rectangular' triangles made from solid wood. ",
-  description: `Three triangles, three sides: these nine segments form nine vectors, nine directions within the space which form an arrangement which is at once simple and sophisticated. The construction recalls the pyramidal structure of a crystal, both light and robust. Here, it is all about balance and tension, more than a static design. The assembly method is simple but gives an impression of sophistication.`,
-  details: `
-  CONSTRUCTION: ROUND DINING TABLE LEGS IN NATURAL OAK WHITE MARBLE-EFFECT STONEWARE, H. 29 x l. 0 x P. 0.`,
-  price: 7670,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/products/4704/3d-views/0/m/0m50ft1c_vue1_1500x1500.jpg",
-    "https://images.ligne-roset.com/cache/products/4704/detail/0/m/0m50ft1c_det1_1500x1500.jpg",
-  ],
-  featured: true,
-  categoryId: 3,
-};
-
-//*********LIGHTING
-
-const CHROMEBELL = {
-  name: "Chrome Bell",
-  designer: "Patrick Zulauf",
-  "short-description":
-    "Table lamp with directional shade in semi-transparent chrome-colored borosilicate glass (Ø 13 cm - W 25 cm).",
-  description: `Directional rise-and-fall head rotates 360°. Base (Ø 16 cm) and stem finished in Epoxy satin black lacquer. Black PVC round cable; black manual switch. Requires 1 x 5 W GU 10 dichroic full glass bulb, angle of diffusion 32°, color temperature 2,700 K (warm white). 400 Lumens (not supplied).
-  - 1-cable suspended light with shade in semi-transparent chrome-colored borosilicate glass (Ø 16.5 cm - H 29.5 cm). Epoxy satin black lacquered round ceiling fitting (Ø 10 cm - H 3 cm). 150 cm black PVC round cable. Requires 1 x 5 W GU 10 dichroic LED (non dimmable) full glass bulb, angle of diffusion 32°, color temperature 2,700K (warm white), 400 Lumens (not supplied).  3-cable suspended light with shades in semi-transparent chrome-colored borosilicate glass (Ø 16.5 cm - H 29.5 cm). Epoxy satin black lacquered round ceiling fitting (77.5 x 7.5 cm - H 3 cm). 150 cm black PVC round cables. Requires 3 x 5 W GU 10 dichroic LED (non dimmable) full glass bulbs, angle of diffusion 32°, color temperature 2,700K (warm white), 400 Lumens (not supplied).`,
-  details: `
-  CONSTRUCTION: DIMENSIONS:  H 29 x W 58 x D 22"                                                                                                                            `,
-  price: 7670,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2537/ifondperdu/1/0/1000qt_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2537/iambiance2/1/0/10041x_1848x1848.jpg",
-    "https://images.ligne-roset.com/cache/models/2537/iambiance1/1/0/1001mv_c01_1848x1848.jpg",
-  ],
-  featured: true,
-  categoryId: 4,
-};
-
-const ASOLA = {
-  name: "Asola",
-  designer: "Evangelos Vasileiou",
-  "short-description":
-    "Asola is a glimpse of the Seventies and Eighties, as much in terms of the material used - perforated steel - and its white color as its stylised mushroom-like shape.",
-  description: `The latter evokes the emblematic lights of the period such as Giancarlo Mattioli's Nesso light (1967) or Mario Botta's Shogun (1986), which was designed for Artemide.
-  - Table lamp with stem and shade constructed from two white lacquered perforated steel cylinders. The upper section of the cylinder-stem has an anti-glare dome in repoussé steel. Epoxy white lacquer finish.`,
-  details: `White electric cable. Manual switch. Requires 1 x 57W - E26 standard eco halogen bulb (Classic A), not supplied.
-  - Floor lamp with stem and shade (Ø 23 1/2'' / 60 cm - H 11 3/4'' / 30 cm) made of two perforated steel cylinders. The upper section of the cylinder-stem has an anti-glare dome in steel. Epoxy white lacquer finish. White PVC cable and white foot-operated dimmer switch. Requires 1 x 115 W E 26 Eco halogen standard (classic A) bulb, not supplied. 2,135 Lumens, (not supplied).`,
-  price: 1545,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2354/ifondperdu/0/1/012jz_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2354/iambiance2/0/1/012k1_c01_1848x1654.jpg",
-    "https://images.ligne-roset.com/cache/models/2354/iambiance1/0/1/012jz_c01_1848x1653.jpg",
-  ],
-  featured: true,
-  categoryId: 4,
-};
-
-const CALOT = {
-  name: "Calot",
-  designer: "Patrick Zulauf",
-  "short-description":
-    "Table lamp with chromed steel stem, base (Ø 3 1/2'' / 9 cm - H 1 1/2'' / 3.5 cm) in white marble, white PVC cable and white manual switch. ",
-  description: `The latter evokes the emblematic lights of the period such as Giancarlo Mattioli's Nesso light (1967) or Mario Botta's Shogun (1986), which was designed for Artemide.
-  - Shade (Ø 3 1/2'' - 9 cm) in transparent resin with a polished, frosted section for the bulb. Supplied with 1 x 2 W G4 LED bulb, color temperature 3,000K (warm white), 220 Lumens.`,
-  details: `Table lamp with clear matt varnished brass-coated steel stem, base (Ø 3 1/2'' / 9 cm - H 1 1/2'' / 3.5 cm) in black marble, black PVC cable and black manual switch. Shade (Ø 3 1/2'' - 9 cm) in transparent resin with a polished, frosted section for the bulb. Supplied with 1 x 2 W G4 LED bulb, color temperature 3,000K (warm white), 220 Lumens.
-  Reading light with chromed steel stem, base (Ø 5 1/2'' / 14 cm - H 1 1/2'' / 3.5 cm) in white marble, white PVC cable and white manual switch. Shade (Ø 3 1/2'' - 9 cm) in transparent resin with a polished, frosted section for the bulb. Supplied with 1 x 2 W G4 LED bulb, color temperature 3,000K (warm white), 220 Lumens.
-  Reading light with clear matt varnished brass-coated steel stem, base (Ø 5 1/2'' / 14 cm - H 1 1/2'' / 3.5 cm) in black marble, black PVC cable and black manual switch. Shade (Ø 3 1/2'' - 9 cm) in transparent resin with a polished, frosted section for the bulb. Supplied with 1 x 2 W G4 LED bulb, color temperature 3,000K (warm white). 220 Lumens.
-  Suspended light with shade in transparent resin Ø 3 1/4'' - 8 cm, with a polished sanded section for the bulb. 98 1/2'' - 2.50 m long woven metal cable in a brass-effect finish. ‘Coulistop’ height adjustment system. Epoxy satin white lacquered ceiling fitting H 1'' - 2.5 cm Ø 4 3/4'' - 12 cm. Supplied with 1 x 1.2 W 12 V G4 LED bulb, color temperature 3,000K (warm white), 100 Lumens. Non-dimmable LED bulb.
-  Suspended light with shade in transparent resin Ø 3 1/4'' - 8 cm, with a polished sanded section for the bulb. 98 1/2'' - 2.50 m long woven metal cable in a brass-effect finish. ‘Coulistop’ height adjustment system. Epoxy satin white lacquered ceiling fitting H 1 1/4'' - 3 cm Ø 15 3/4'' - 40 cm. Supplied with 9 x 1.2 W 12 V G4 LED bulbs, color temperature 3,000K (warm white), 100 Lumens. Non-dimmable LED bulb.`,
-  price: 2290,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2534/ifondperdu/1/0/1003gq_c01_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2534/iambiance3/1/0/1003xi_2000x2000.jpg",
-    "https://images.ligne-roset.com/cache/models/2534/iambiance2/1/0/1003xe_1848x1848.jpg",
-  ],
-  featured: true,
-  categoryId: 4,
-};
-
-//***************OFFICE */
-
-const BRIORD = {
-  name: "Briord",
-  designer: "Rémi Bouhaniche",
-  "short-description":
-    "According to Rémi Bouhaniche, it was during the first lockdown in 2020, whilst viewing aerial video imagery of the Briord factories",
-  description: `Roset is based, that he had the idea : to design a piece of furniture inspired by the landscape conjured up by that aerial view of the Rhône and its meanderings around the Bugey mountains. A homage to wood, with lines with the light but asymmetrical lines of nature.Here, Rémi Bouhaniche plays to the Home Office trend, with a desk which is at once elegant and functional, the sleek lines of which are soft yet precise.
-  Black lacquered steel base ; top and drawer in black-stained ash.`,
-  details: "it was during the first lockdown in 2020.",
-  price: 2290,
-  stock: 10,
-  images: [
-    "https://images.ligne-roset.com/cache/models/2748/ifondperdu/1/0/1006oz_720x393.jpg",
-    "https://images.ligne-roset.com/cache/models/2748/iambiance3/1/0/1006p2_1000x1000.jpg",
-    "https://images.ligne-roset.com/cache/models/2748/iambiance1/1/0/1007dz_c01_1848x1848.jpg",
-  ],
-  featured: true,
-  categoryId: 5,
-};
 
 const products = [
-  PRADO,
-  LOVESEATPUMPKIN,
-  PLUMY,
-  SAPARELLA,
-  AMEDEE,
-  ASMARA,
-  VILNA,
-  ODESSA,
-  ENNEA,
-  CHROMEBELL,
-  ASOLA,
-  CALOT,
-  BRIORD,
+  /*********************** SOFAS ***********************/
+  {
+    name: "Kivik",
+    "short-description": `Cuddle up in the soft comfort of KIVIK sofa. The generous size, low armrests and pocket springs with foam that adapts to the body invites you and your guests to many hours of socialising and relaxation.`,
+    description: `Enjoy the super comfy KIVIK sofa with deep seat cushions made of pocket springs, high resilience foam and polyester fibres - adding both firm support and relaxing softness. The size and depth of the sofa make it perfect for a nice nap, and when the whole family is gathered, there is room for everyone and even extra seating on the wide armrests.`,
+    details: `
+    <ul>
+      <li>Depth: 95 cm</li>
+      <li>Height: 83 cm</li>
+      <li>Width right: 297 cm</li>
+      <li>Width left: 257 cm</li>
+      <li>Seat depth: 60 cm</li>
+      <li>Seat height: 45 cm</li>
+      <li>Armrest width: 24 cm</li>
+    </ul>
+    `,
+    price: 1369,
+    stock: 15,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/kivik-corner-sofa-5-seat-hillared-anthracite__0479948_pe619101_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kivik-corner-sofa-5-seat-hillared-anthracite__0777093_pe758437_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kivik-corner-sofa-5-seat-hillared-anthracite__0777071_pe758416_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 1,
+  },
+  {
+    name: "Landskrona",
+    "short-description": `Warm and welcoming, neat and stylish. The supporting seat cushions, the cover's soft finish and the tight fit gives this sofa a perfect balance between its comfort, functions and look.`,
+    description: `The fabric cover has a warm and welcoming look, while the tight fit gives the sofa a neat and stylish expression.
+    Seat cushions filled with high-resilience foam and polyester fibre wadding provide great seating comfort.`,
+    details: `
+    <ul>
+      <li>Depth: 89 cm</li>
+      <li>Height: 78 cm</li>
+      <li>Width: 164 cm</li>
+      <li>Seat depth: 61 cm</li>
+      <li>Seat height: 44 cm</li>
+      <li>Armrest height: 64 cm</li>
+    </ul>
+    `,
+    price: 599,
+    stock: 8,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/landskrona-2-seat-sofa-gunnared-light-green-wood__0602106_pe680175_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/landskrona-2-seat-sofa-gunnared-light-green-wood__0828967_pe680176_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/landskrona-2-seat-sofa-gunnared-light-green-wood__0826898_pe707727_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 1,
+  },
+  {
+    name: "Söderhamn",
+    "short-description": `Sit deeply, low and softly with the loose back cushions for extra support.`,
+    description: `The cover is easy to keep clean since it is removable and can be machine washed.
+    The various sections of the seating series can be connected together in different combinations or used separately.
+    You sit in comfort with a slight, pleasant resilience thanks to the elastic weave in the bottom and high resilience foam in the seat cushions.`,
+    details: `
+    <ul>
+      <li>Depth: 99 cm</li>
+      <li>Height including back cushions: 83 cm</li>
+      <li>Height backrest: 93 cm</li>
+      <li>Width: 192 cm</li>
+      <li>Seat depth: 70 cm</li>
+      <li>Seat height: 40 cm</li>
+    </ul>
+    `,
+    price: 938,
+    stock: 13,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/soderhamn-corner-sofa-3-seat-gunnared-beige__0766698_pe753868_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/soderhamn-corner-sofa-3-seat-gunnared-beige__0767190_pe754175_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/soderhamn-corner-sofa-3-seat-gunnared-beige__0767191_pe754169_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 1,
+  },
+  {
+    name: "Grönlid",
+    "short-description": `Snuggle up, feel embraced and enjoy cosy nights and lazy days with family and friends. This sofa is extra deep, has soft and moveable back cushions and can be customised to your home and your needs.`,
+    description: `Grönlid sofa is soft, comfy and inviting to sink into. Deep pocket spring seat cushions, foam and a top layer of polyester fibres takes your comfort to a new level.
+    You can sit in a way that suits you and feel relaxed for many hours thanks to the movable back cushions that give your body support exactly where it's needed.`,
+    details: `
+    <ul>
+      <li>Height including back cushions: 104 cm</li>
+      <li>Depth chaise longue: 164 cm</li>
+      <li>Depth: 98 cm</li>
+      <li>Seat depth, chaise longue: 126 cm</li>
+      <li>Width right: 252 cm</li>
+      <li>Width left: 333 cm</li>
+      <li>Free height under furniture: 7 cm</li>
+      <li>Armrest width: 18 cm</li>
+      <li>Armrest height: 68 cm</li>
+      <li>Seat depth: 60 cm</li>
+      <li>Seat height: 49 cm</li>
+    </ul>
+    `,
+    price: 1519,
+    stock: 4,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/gronlid-corner-sofa-5-seat-w-chaise-longue-ljungen-medium-grey__0577275_pe668732_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/gronlid-corner-sofa-5-seat-w-chaise-longue-ljungen-medium-grey__0787563_pe763289_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/gronlid-corner-sofa-5-seat-w-chaise-longue-ljungen-medium-grey__0622814_pe690777_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 1,
+  },
+  {
+    name: "Backsälen",
+    "short-description": `This sofa is easy on the eyes and body. The design is welcoming, the deep seat and the high back and armrests embrace you - and it's also super easy to remove the cover and wash it.`,
+    description: `The deep seat and the high back and armrests feel embracing, so you enjoy a comfortable and relaxed sitting position - perfect for reading, watching TV or having long chats.`,
+    details: `
+    <ul>
+      <li>Width: 205 cm</li>
+      <li>Depth: 94 cm</li>
+      <li>Height including back cushions: 85 cm</li>
+      <li>Height backrest: 72 cm</li>
+      <li>Seat width: 180 cm</li>
+      <li>Seat depth: 60 cm</li>
+      <li>Seat height: 43 cm</li>
+      <li>Armrest height: 72 cm</li>
+      <li>Armrest width: 5 cm</li>
+      <li>Free height under furniture: 17 cm</li>
+    </ul>
+    `,
+    price: 399,
+    stock: 21,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/backsalen-3-seat-sofa-blekinge-white__0950634_pe800555_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/backsalen-3-seat-sofa-blekinge-white__0985520_pe816658_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/backsalen-3-seat-sofa-blekinge-white__0985575_pe816677_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 1,
+  },
+  {
+    name: "Sörvallen",
+    "short-description": `Sörvallen is a modern sofa series in a Scandinavian style with a simple, minimalist look.`,
+    description: `Can be connected with e.g. a chaise longue to create a small corner sofa.
+    Chaise longue with storage for things such as bedlinen.`,
+    details: `
+    <ul>
+      <li>Seat width, chaise longue: 80 cm</li>
+      <li>Depth: 102 cm</li>
+      <li>Height: 88 cm</li>
+      <li>Seat depth, chaise longue: 153 cm</li>
+      <li>Width right: 232 cm</li>
+      <li>Width left: 365 cm</li>
+      <li>Free height under furniture: 7 cm</li>
+      <li>Armrest height: 58 cm</li>
+      <li>Seat depth: 60 cm</li>
+      <li>Seat height: 45 cm</li>
+    </ul>
+    `,
+    price: 2099,
+    stock: 7,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/sorvallen-corner-sofa-4-seat-with-chaise-longue-left-tallmyra-medium-grey__1066553_pe852501_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/sorvallen-corner-sofa-4-seat-with-chaise-longue-left-tallmyra-medium-grey__1070990_pe854839_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/sorvallen-corner-sofa-4-seat-with-chaise-longue-left-tallmyra-medium-grey__1070762_pe854701_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 1,
+  },
+  {
+    name: "Vallentuna",
+    "short-description": `One sofa, lots of possibilities. In need of extra beds, smart storage or a comfy reading corner? No problem. Just choose the modules you like, combine them as you want - and change when you feel like it.`,
+    description: `All modules in the Vallentuna series can be used freestanding or together to create a sofa combination in any size that suits you perfectly.
+    Vallentuna retains its comfort for a long time with generous seating and pocket springs that follow your body.`,
+    details: `
+    <ul>
+      <li>Depth: 93 cm</li>
+      <li>Height: 84 cm</li>    
+      <li>Width right: 266 cm</li>    
+      <li>Width left: 173 cm</li>    
+      <li>Seat depth: 80 cm</li>    
+      <li>Seat height: 45 cm</li>
+    </ul>
+    `,
+    price: 1380,
+    stock: 8,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/vallentuna-modular-corner-sofa-3-seat-with-storage-kelinge-anthracite__0938533_pe794167_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/vallentuna-modular-corner-sofa-3-seat-with-storage-kelinge-anthracite__0938535_pe794169_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/vallentuna-modular-corner-sofa-3-seat-with-storage-kelinge-anthracite__0938534_pe794182_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 1,
+  },
+  {
+    name: "Linanäs",
+    "short-description": `Create enough seating with SOLLERÖN modular sections ―here with a stool that becomes a chaise longue. Maintenance-free plastic rattan and cushions that are fade-resistant and anti-slip make life easier.`,
+    description: `The cover is made from Vissle fabric in polyester, which is dope-dyed. It's a durable material with a smooth weave and a nice two-tone effect.`,
+    details: `
+    <ul>
+      <li>Depth: 80.5 cm</li>
+      <li>Height: 76.0 cm</li>
+      <li>Seat depth: 59 cm</li>
+      <li>Seat height: 46 cm</li>
+      <li>Width: 197 cm</li>
+      <li>Armrest height: 66 cm</li>
+      <li>Depth chaise longue: 145 cm</li>
+      <li>Free height under furniture: 15 cm</li>
+      <li>Seat depth, chaise longue: 127 cm</li>
+      <li>Seat width: 178 cm</li>
+    </ul>
+    `,
+    price: 399,
+    stock: 25,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/linanas-3-seat-sofa-with-chaise-longue-vissle-dark-grey__1013908_pe829460_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/linanas-3-seat-sofa-with-chaise-longue-vissle-dark-grey__1013909_pe829463_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/linanas-3-seat-sofa-with-chaise-longue-vissle-dark-grey__1013910_pe829462_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 1,
+  },
+
+  /*********************** ARMCHAIRS ***********************/
+
+  {
+    name: "Vimle",
+    "short-description": `The Vimle sofa series has sections that can be combined as you like into a customised solution for you and your home - and as your life changes, you can complete the sofa and let it change with you.`,
+    description: `This firm armchair will have a long life since the seat cushion is filled with high resilience foam that gives good support for your body and quickly regains its original shape when you get up.
+    The sofa's sections can be combined in different ways to get a size and shape that suits you and your home. If you ever need a larger sofa, you can always add a section or two.`,
+    details: `
+    <ul>
+      <li>Width: 101 cm</li>
+      <li>Depth: 98 cm</li>
+      <li>Height: 83 cm</li>
+      <li>Free height under furniture: 6 cm</li>
+      <li>Armrest height: 68 cm</li>
+      <li>Seat width: 71 cm</li>
+      <li>Seat depth: 55 cm</li>
+      <li>Seat height: 48 cm</li>
+    </ul>
+    `,
+    price: 649,
+    stock: 17,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/vimle-armchair-grann-bomstad-black__1067981_pe852851_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/vimle-armchair-grann-bomstad-black__1067979_pe852849_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/vimle-armchair-grann-bomstad-black__1067980_pe852902_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 2,
+  },
+  {
+    name: "Vallentuna Chair",
+    "short-description": `One sofa, lots of possibilities. In need of extra beds, smart storage or a comfy reading corner? No problem. Just choose the modules you like, combine them as you want - and change when you feel like it.`,
+    description: `All modules in the Vallentuna series can be used freestanding or together to create a sofa combination in any size that suits you perfectly.
+    Vallentuna retains its comfort for a long time with generous seating and pocket springs that follow your body.`,
+    details: `
+    <ul>
+      <li>Width: 113 cm</li>
+      <li>Depth: 93 cm</li>
+      <li>Height: 84 cm</li>
+      <li>Seat height: 45 cm</li>
+      <li>Bed width: 80 cm</li>
+      <li>Bed length: 200 cm</li>
+    </ul>
+    `,
+    price: 680,
+    stock: 15,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/vallentuna-sofa-bed-module-with-backrests-hillared-dark-grey__0938365_pe794080_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/vallentuna-sofa-bed-module-with-backrests-hillared-dark-grey__0938953_pe794360_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/vallentuna-sofa-bed-module-with-backrests-hillared-dark-grey__0938954_pe794352_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+  {
+    name: "Strandmon",
+    "short-description": `Need a hug? Strandmon wing chair has an embracing feel with a high back, round armrests, soft lines and inviting upholstery. A traditional look with modern comfort for many cosy moments.`,
+    description: `You can really loosen up and relax in comfort because the high back on this chair provides extra support for your neck.
+    This wing chair has an embracing feel with a high back, round armrests and inviting upholstery. The cover's a mix of soft natural grain leather and a coated fabric with a look and touch similar to leather.`,
+    details: `
+    <ul>
+      <li>Width: 82 cm</li>
+      <li>Depth: 96 cm</li>
+      <li>Height: 101 cm</li>
+      <li>Seat depth: 54 cm</li>
+      <li>Seat height: 45 cm</li>
+      <li>Seat width: 49 cm</li>
+    </ul>
+    `,
+    price: 379,
+    stock: 19,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/strandmon-wing-chair-grann-bomstad-dark-brown__0998383_pe823013_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/strandmon-wing-chair-grann-bomstad-dark-brown__0998384_pe823015_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/strandmon-wing-chair-grann-bomstad-dark-brown__0998385_pe823014_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+  {
+    name: "Stocksund",
+    "short-description": `Stocksund armchair is made for reading a good book or enjoying some relaxing me time. It's wide and deep with a thick cushion that is both soft and provides support where needed. Sit down and enjoy!`,
+    description: `You get extra soft comfort and support because the thick seat cushions have a core of pocket springs and a top of cut foam and polyester fibres.
+    The core of pocket springs is durable and keeps its form and soft comfort for a longer time.`,
+    details: `
+    <ul>
+      <li>Height including back cushions: 84 cm</li>
+      <li>Height backrest: 73 cm</li>
+      <li>Width: 92 cm</li>
+      <li>Depth: 97 cm</li>
+      <li>Seat depth: 58 cm</li>
+      <li>Seat height: 46 cm</li>
+    </ul>
+    `,
+    price: 449,
+    stock: 23,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/stocksund-armchair-segersta-multicolour-light-brown-wood__0617758_pe688179_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/stocksund-armchair-segersta-multicolour-light-brown-wood__0837510_pe688180_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/stocksund-armchair-segersta-multicolour-light-brown-wood__0837504_pe688177_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+  {
+    name: "Söderhamn chair",
+    "short-description": `If you like the stylish airy look, you have to try the deep generous seats. Create your own personal combination of Söderhamn sofa, then sit down and relax - by yourself or together with the whole family.`,
+    description: `Söderhamn seating series allows you to sit deeply, low and softly with the loose back cushions for extra support.
+    Light, airy design with high legs and slim lines, yet still a great comfort thanks to the elastic weave in the bottom and high resilience foam in the seat cushions.`,
+    details: `
+    <ul>
+      <li>Width: 105 cm</li>
+      <li>Depth: 99 cm</li>
+      <li>Height: 83 cm</li>
+      <li>Seat width: 93 cm</li>
+      <li>Seat depth: 48 cm</li>
+      <li>Seat height: 40 cm</li>
+    </ul>
+    `,
+    price: 479,
+    stock: 20,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/soderhamn-armchair-viarp-beige__0802651_pe768532_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/soderhamn-armchair-viarp-beige__0802650_pe768534_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/soderhamn-armchair-viarp-beige__0802649_pe768533_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+  {
+    name: "Grönlid chair",
+    "short-description": `Snuggle up, feel embraced and enjoy cosy nights and lazy days with family and friends. This sofa is extra deep, has soft and moveable back cushions and can be customised to your home and your needs.`,
+    description: `Grönlid chaise longue is soft, comfy and inviting to sink into. Deep pocket spring seat cushion, foam and a top layer of polyester fibres takes your comfort to a new level.
+    You can sit in a way that suits you and feel relaxed for many hours thanks to the movable back cushions that give your body support exactly where it's needed.`,
+    details: `
+    <ul>
+      <li>Height including back cushions: 104 cm</li>
+      <li>Width: 117 cm</li>
+      <li>Depth: 164 cm</li>
+      <li>Free height under furniture: 7 cm</li>
+      <li>Armrest width: 18 cm</li>
+      <li>Armrest height: 68 cm</li>
+      <li>Seat width: 81 cm</li>
+      <li>Seat depth: 126 cm</li>
+      <li>Seat height: 49 cm</li>
+    </ul>
+    `,
+    price: 540,
+    stock: 12,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/gronlid-chaise-longue-sporda-natural__0577298_pe668759_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/gronlid-chaise-longue-sporda-natural__0823250_pe675081_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/gronlid-chaise-longue-sporda-natural__0771816_pe755796_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+  {
+    name: "Viskafors",
+    "short-description": `Viskafors is an armchair that becomes a statement piece in the room. The classic design has generous, inviting shapes - and when you sink into the deep soft seat, the armchair gives you an embracing feel.`,
+    description: `Classic design with soft, rounded shapes and generously sized armrests makes Viskafors armchair a statement piece in any living room.
+    The deep seat with pocket springs is really soft and creates an inviting, embracing feel when you sit on the armchair.`,
+    details: `
+    <ul>
+      <li>Depth: 90 cm</li>
+      <li>Height: 74 cm</li>
+      <li>Seat depth: 60 cm</li>
+      <li>Seat height: 46 cm</li>
+      <li>Seat width: 89 cm</li>
+      <li>Width: 134 cm</li>
+      <li>Free height under furniture: 11 cm</li>
+      <li>Armrest width: 22 cm</li>
+    </ul>
+    `,
+    price: 540,
+    stock: 12,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/viskafors-1-5-seat-armchair-lejde-anthracite-brown__1088082_pe861050_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/viskafors-1-5-seat-armchair-lejde-anthracite-brown__1095972_pe864119_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/viskafors-1-5-seat-armchair-lejde-anthracite-brown__1095973_pe864120_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+  {
+    name: "Kivik chair",
+    "short-description": `A chaise longue is perfect when you want to stretch out for a while. Read a good book, watch a movie or play video games. Kivik chaise longue can be used freestanding or in combination with your sofa.`,
+    description: `Enjoy the super comfy Kivik chaise longue with seat cushion made of pocket springs, high resilience foam and polyester fibres - adding both firm support and relaxing softness.
+    The chaise longue can either be used freestanding or added onto the sofas.`,
+    details: `
+    <ul>
+      <li>Width: 90 cm</li>
+      <li>Depth: 163 cm</li>
+      <li>Height: 83 cm</li>
+      <li>Seat width: 90 cm</li>
+      <li>Seat depth: 124 cm</li>
+      <li>Seat height: 45 cm</li>
+    </ul>
+    `,
+    price: 540,
+    stock: 12,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/kivik-chaise-longue-grann-bomstad-black__0115141_pe268333_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kivik-chaise-longue-grann-bomstad-black__0776804_pe758295_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kivik-chaise-longue-grann-bomstad-black__0776803_pe758273_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 2,
+  },
+
+  /*********************** TABLES ***********************/
+
+  {
+    name: "Strandtorp",
+    "short-description": `Whether it's mealtime with the family or a dinner party, STRANDTORP table extends with ease giving everyone plenty of elbow room. Perfect for bringing everyone together for all those special moments.`,
+    description: `You can easily change the size of this 3-in-1 table to seat 4, 6 or 8 persons using the included self-storing leaves. If you add a seat to each short side you can even fit up to 10 persons.
+    The chaise longue can either be used freestanding or added onto the sofas.`,
+    details: `
+    <ul>
+      <li>Length: 205 cm</li>
+      <li>Min. length: 150 cm</li>
+      <li>Max. length: 260 cm</li>
+      <li>Width: 95 cm</li>
+      <li>Height: 75 cm</li>
+    </ul>
+    `,
+    price: 469,
+    stock: 18,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/strandtorp-extendable-table-brown__0926900_pe789586_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/strandtorp-extendable-table-brown__0946320_ph172863_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/strandtorp-extendable-table-brown__0946319_ph172862_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
+  {
+    name: "Torsby",
+    "short-description": `Looking for a durable and decorative table that can withstand almost anything? Then maybe Torsby table with its ceramic tabletop and sturdy chrome-plated underframe can be something for you.`,
+    description: `The durable ceramic tabletop is highly resistant to scratches, stains, heat and cold.
+    Easy to clean since the surface's structure is dense and entirely non-porous.`,
+    details: `
+    <ul>
+      <li>Length: 135 cm</li>
+      <li>Width: 85 cm</li>
+      <li>Height: 75 cm</li>
+    </ul>
+    `,
+    price: 359,
+    stock: 29,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/torsby-table-chrome-plated-black-marble-effect-ceramic__1026233_pe834398_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/torsby-table-chrome-plated-black-marble-effect-ceramic__1026235_pe834397_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/torsby-table-chrome-plated-black-marble-effect-ceramic__1026236_pe834400_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
+  {
+    name: "Ingatorp",
+    "short-description": `It's easy to extend when guests arrive - the legs of the table stay in the corner so everyone sits just as comfortably. A traditional look with details like turned legs give it that little extra.`,
+    description: `This 4-seat table can easily be extended into a 6-seat table using the included self-storing leaf.
+    The self-storing leaf is easy to insert to extend the table and just as easy to remove and tuck away under the table top when your guests have gone home.`,
+    details: `
+    <ul>
+      <li>Length: 155 cm</li>
+      <li>Max. length: 215 cm</li>
+      <li>Width: 87 cm</li>
+      <li>Height: 74 cm</li>
+    </ul>
+    `,
+    price: 299,
+    stock: 38,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/ingatorp-extendable-table-black__0737090_pe740880_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/ingatorp-extendable-table-black__0870372_pe594442_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/ingatorp-extendable-table-black__1060576_pe850052_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
+  {
+    name: "Mörbylånga",
+    "short-description": `The oak top layer enhances the plank feeling and details like the floating table top and dovetail joints give the table a crafted look. A table full of character and plenty of room for family and friends.`,
+    description: `The table has a full plank design that gives it an authentic plank expression with a genuine wood feeling.
+    The plank expression is enhanced by the design on the edges.
+    Oak is an exceedingly strong and durable hardwood with a prominent grain. It darkens beautifully with age acquiring a golden-brown undertone.`,
+    details: `
+    <ul>
+      <li>Length: 220 cm</li>
+      <li>Width: 100 cm</li>
+      <li>Height: 74 cm</li>
+    </ul>
+    `,
+    price: 799,
+    stock: 9,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/morbylanga-table-oak-veneer-brown-stained__0737110_pe740888_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/morbylanga-table-oak-veneer-brown-stained__0719765_pe732180_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/morbylanga-table-oak-veneer-brown-stained__0719764_pe732179_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 3,
+  },
+  {
+    name: "Skogsta",
+    "short-description": `Every table is unique, with varying grain pattern and natural colour shifts that are part of the charm of wood.`,
+    description: `Acacia has a rich brown colour and distinctive grain pattern. It is highly durable, resistant to scratches and water, ideal for heavy-use. Acacia slightly darkens with age.`,
+    details: `
+    <ul>
+      <li>Length: 235 cm</li>
+      <li>Width: 100 cm</li>
+      <li>Height: 73 cm</li>
+    </ul>
+    `,
+    price: 429,
+    stock: 19,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/skogsta-dining-table-acacia__0546603_pe656255_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/skogsta-dining-table-acacia__0809033_ph149979_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/skogsta-dining-table-acacia__0946421_ph173663_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
+  {
+    name: "Gillanda",
+    "short-description": `This extendable dining table has a modern and sleek design with neat aluminium legs and a deeply embossed table top that looks like it is made of stone. Nice to the touch and easy to clean.`,
+    description: `Extendable dining table with 1 extra leaf seats 6-8; makes it possible to adjust the table size according to need.
+    The hardwearing, sturdy and maintenance-free frame in powder-coated aluminium makes the table easy to lift and move.
+    The foil melamine surface of the table top is durable, easy to clean and nice to the touch.`,
+    details: `
+    <ul>
+      <li>Length: 180 cm</li>
+      <li>Max. length: 240 cm</li>
+      <li>Width: 100 cm</li>
+      <li>Height: 75 cm</li>
+    </ul>
+    `,
+    price: 749,
+    stock: 12,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/gillanda-extendable-table-dark-grey-black__0830757_pe776837_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/gillanda-extendable-table-dark-grey-black__0830758_pe776836_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/gillanda-extendable-table-dark-grey-black__0944968_pe797512_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
+  {
+    name: "Bengtstorp",
+    "short-description": `The oak top layer and dovetail joints give the table a solid, crafted expression. This table is full of character and since it's round, you can always find space for at least one more friend.`,
+    description: `Every table is unique, with varying grain pattern and natural colour shifts that are part of the charm of wood.
+    Oak is an exceedingly strong and durable hardwood with a prominent grain. It darkens beautifully with age acquiring a golden-brown undertone.`,
+    details: `
+    <ul>
+      <li>Diameter: 145 cm</li>
+      <li>Height: 75 cm</li>
+    </ul>
+    `,
+    price: 699,
+    stock: 15,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/morbylanga-table-oak-veneer-brown-stained__0737109_pe740887_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/morbylanga-table-oak-veneer-brown-stained__0719383_pe732031_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/morbylanga-table-oak-veneer-brown-stained__0719382_pe732030_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
+  {
+    name: "Nordviken",
+    "short-description": `This spacious, wood dining table has a traditional feel and will soon become a natural gathering place in your home. The sturdy construction and smooth extension mechanism make it a long-lasting favourite.`,
+    description: `A stable construction in solid wood and hardwood veneer that makes each table unique, with varying grain patterns and natural colour shifts that are part of the charm of wood.
+    The 6-seat table can easily be extended into a 8-seat table using the included self-storing leaves.`,
+    details: `
+    <ul>
+      <li>Length: 210 cm</li>
+      <li>Max. length: 289 cm</li>
+      <li>Width: 105 cm</li>
+      <li>Height: 75 cm</li>
+    </ul>
+    `,
+    price: 499,
+    stock: 23,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/nordviken-extendable-table-black__0714238_pe729976_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/nordviken-extendable-table-black__1030736_pe836340_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/nordviken-extendable-table-black__0744800_pe743411_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 3,
+  },
 ];
 
 module.exports = async () => await Product.bulkCreate(products);
