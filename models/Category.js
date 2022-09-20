@@ -16,6 +16,7 @@ module.exports = (sequelize, Model, DataTypes) => {
         validate: {
           notEmpty: true,
         },
+        unique: true,
       },
       slug: {
         type: DataTypes.STRING,

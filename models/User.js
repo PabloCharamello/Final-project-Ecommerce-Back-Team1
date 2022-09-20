@@ -15,6 +15,10 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
+          isAlpha: {
+            args: true,
+            message: "type only characters!",
+          },
         },
       },
       lastname: {
@@ -22,13 +26,16 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
+          isAlpha: true,
         },
       },
       email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(20),
         allowNull: false,
         validate: {
           notEmpty: true,
+          isLowercase: true,
+          isEmail: true,
         },
         unique: true,
       },

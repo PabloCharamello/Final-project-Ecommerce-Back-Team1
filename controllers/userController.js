@@ -11,18 +11,22 @@ async function show(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const emailExists = await User.findOne({ where: { email: req.body.email } });
-  if (emailExists) {
-    return res.status(401).json({ error: "Email already in use!" });
+  try {
+    const emailExists = await User.findOne({ where: { email: req.body.email } });
+    if (emailExists) {
+      return res.status(401).json({ error: "Email already in use!" });
+    }
+    const user = await User.create({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      password: req.body.password,
+    });
+    return res.json(user);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
   }
-  const user = await User.create({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    phone: req.body.phone,
-    password: req.body.password,
-  });
-  return res.json(user);
 }
 
 // Update the specified resource in storage.
