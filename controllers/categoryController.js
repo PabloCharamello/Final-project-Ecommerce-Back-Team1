@@ -19,8 +19,12 @@ async function show(req, res) {
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
+    const categoryExists = await Category.findOne({ where: { name: req.body.name } });
+    console.log(categoryExists);
+    if (categoryExists) {
+      return res.status(400).json({ message: "category alredy exists!" });
+    }
     await Category.create(req.body);
-    return res.json({ message: "category created" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
