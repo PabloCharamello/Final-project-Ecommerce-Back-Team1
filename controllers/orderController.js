@@ -1,11 +1,11 @@
-const { Order, User } = require("../models");
+const { Order, User, Address } = require("../models");
 
 async function index(req, res) {
   if (req.query.userId) {
     if (!req.auth.isAdmin && req.auth.sub != req.query.userId) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    const orders = await Order.findAll({ where: { userId: req.auth.sub } });
+    const orders = await Order.findAll({ where: { userId: req.auth.sub }, include: Address });
     return res.json(orders);
   }
   if (!req.auth.isAdmin) {
@@ -13,6 +13,21 @@ async function index(req, res) {
   }
   const orders = await Order.findAll({ include: User });
   res.json(orders);
+}
+
+async function show(req, res) {
+  if (req.query.userId) {
+    if (!req.auth.isAdmin && req.auth.sub != req.query.userId) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    const order = await Order.findByPk(req.params.id, { include: Address });
+    return res.json(order);
+  }
+  if (!req.auth.isAdmin) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  const order = await Order.findByPk(req.params.id, { include: Address, User });
+  res.json(order);
 }
 
 async function store(req, res) {
@@ -45,6 +60,7 @@ async function update(req, res) {
 
 module.exports = {
   index,
+  show,
   store,
   update,
 };
