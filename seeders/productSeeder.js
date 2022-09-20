@@ -612,6 +612,612 @@ const products = [
     featured: false,
     categoryId: 3,
   },
+
+  /*********************** LIGHTING ***********************/
+
+  {
+    name: "Simrishamn",
+    "short-description": `A stylish glass and chrome lamp from the Simrishamn series. Modern lighting for an entire home that creates a nice atmosphere. Use it as a standalone eye-catcher or mix it with other lamps in the series.`,
+    description: `Gives a good general light.
+    You can choose to hang the chandelier over your dining table or closer to the ceiling for general lighting in the room.`,
+    details: `
+    <ul>
+      <li>Max.: 7 W</li>
+      <li>Height: 46 cm</li>
+      <li>Diameter: 70 cm</li>
+      <li>Shade diameter: 15 cm</li>
+      <li>Length of chain: 105 cm</li>
+    </ul>
+    `,
+    price: 109,
+    stock: 34,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/simrishamn-chandelier-7-armed-chrome-plated-opal-white-glass__0793467_pe765392_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/simrishamn-chandelier-7-armed-chrome-plated-opal-white-glass__0793466_pe765393_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/simrishamn-chandelier-7-armed-chrome-plated-opal-white-glass__0793465_pe765391_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+  {
+    name: "Högvind",
+    "short-description": `This pendant lamp has 3 mouth blown, smoke-coloured glass shades with inner shades made of perforated metal. Together they create an elegant eye-catcher that provides soft mood lighting and directed light.`,
+    description: `Inside the pendant lamp's 3 smoke-coloured glass shades is a shade made of perforated metal, which provides both pleasant mood lighting and directed light over the surface below.
+    These lampshades in glass are mouth blown by a skilled craftsperson and therefore each shade is unique.`,
+    details: `
+    <ul>
+      <li>Cord length: 1.5 m</li>
+      <li>Max. height: 155 cm</li>
+      <li>Min. height: 70 cm</li>
+      <li>Width: 41 cm</li>
+    </ul>
+    `,
+    price: 89,
+    stock: 26,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/hogvind-pendant-lamp-with-3-lamps-nickel-plated-grey-glass__1045903_pe842765_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/hogvind-pendant-lamp-with-3-lamps-nickel-plated-grey-glass__1045906_pe842768_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/hogvind-pendant-lamp-with-3-lamps-nickel-plated-grey-glass__1046124_pe842852_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+  {
+    name: "Brändåsen",
+    "short-description": `Inspired by science fiction movies, Brändåsen is a winner of the international design competition Red Dot Award. Change its shape and intensity of light with a simple pull of the strings.`,
+    description: `You can easily switch between a brighter general light and a softer mood light by just pulling the strings.
+    Gives decorative patterns on the ceiling and on the wall.`,
+    details: `
+    <ul>
+      <li>Max.: 13 W</li>
+      <li>Diameter: 52 cm</li>
+      <li>Cord length: 1.5 m</li>
+    </ul>
+    `,
+    price: 149,
+    stock: 16,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/ikea-ps-2014-pendant-lamp-white-copper-colour__0607414_pe682964_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/ikea-ps-2014-pendant-lamp-white-copper-colour__0880350_pe613978_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/ikea-ps-2014-pendant-lamp-white-copper-colour__0880356_pe615267_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 4,
+  },
+  {
+    name: "Uppvind",
+    "short-description": `Shaped like a shiny tuning fork topped with a slim and oval shade, this sturdy floor lamp catches the eye and spreads a soft, decorative light wherever you choose to place it.`,
+    description: `The lamp gives a soft light and creates a warm, cosy atmosphere in your room.
+    If you want to be able to easily change the light according to mood and needs, you can dim and switch between warm and cold light wirelessly.`,
+    details: `
+    <ul>
+      <li>Max.: 13 W</li>
+      <li>Width: 36 cm</li>
+      <li>Shade width: 44 cm</li>
+      <li>Height: 150 cm</li>
+      <li>Total height: 150 cm</li>
+    </ul>
+    `,
+    price: 139,
+    stock: 23,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/uppvind-floor-lamp-nickel-plated-white__0957613_pe805083_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/uppvind-floor-lamp-nickel-plated-white__0957614_pe805082_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/uppvind-floor-lamp-nickel-plated-white__1116039_ph181364_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+  {
+    name: "Agunnaryd",
+    "short-description": `Agunnaryd ceiling lamp has a 122 cm long rail with 3 metal lampshades in black with brass-coloured inner sides that give a warm, soft light. Perfect to hang over a long table or kitchen island.`,
+    description: `This lamp gives a pleasant light for dining and spreads a good directed light across your dining or bar table.`,
+    details: `
+    <ul>
+      <li>Length: 122 cm</li>
+      <li>Width: 22 cm</li>
+      <li>Height: 27 cm</li>
+      <li>Shade diameter: 22 cm</li>
+      <li>Cord length: 0.7 m</li>
+    </ul>
+    `,
+    price: 89,
+    stock: 27,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/agunnaryd-pendant-lamp-with-3-lamps-black__0859557_pe782370_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/agunnaryd-pendant-lamp-with-3-lamps-black__0859558_pe782372_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/agunnaryd-pendant-lamp-with-3-lamps-black__0859559_pe782371_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+  {
+    name: "Kabomba",
+    "short-description": `Wall lamp in a modern art deco style with a removeable mirror and a built-in dimmable LED bulb. Full light to put on make-up and more diffused to create a calm atmosphere, just like in a hotel bathroom.`,
+    description: `The lamp is dimmed by using the button on the side, so you can easily get the light that suits each activity or occasion.
+    By dimming the lighting, you change the mood in the room while saving energy.
+    The mirror enlarges the reflection - ideal for plucking your eyebrows, shaving or putting on make-up.`,
+    details: `
+    <ul>
+      <li>Diameter: 20 cm</li>
+      <li>Height: 10 cm</li>
+    </ul>
+    `,
+    price: 49,
+    stock: 36,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/kabomba-led-wall-lamp-with-mirror-dimmable-matt-black__1013471_pe829208_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kabomba-led-wall-lamp-with-mirror-dimmable-matt-black__1032942_pe837066_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kabomba-led-wall-lamp-with-mirror-dimmable-matt-black__1032902_pe837050_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+  {
+    name: "Frihult",
+    "short-description": `The soft, round shapes and use of metal and glass create a timeless look that resembles lamps of the past. It is approved for bathroom use and is also a good solution for hallways.`,
+    description: `A versatile lamp that can be mounted facing upwards or downwards, on its own above the mirror or as a pair with one on each side.
+    Perfect to create atmosphere in the bathroom if you use a smart lighting bulb.
+    A traditional style lamp made of rust-free materials.
+    The glass shade provides balanced general lighting throughout the room.`,
+    details: `
+    <ul>
+      <li>Max.: 5.3 W</li>
+      <li>Width: 23 cm</li>
+      <li>Height: 26.5 cm</li>
+      <li>Shade diameter: 14 cm</li>
+    </ul>
+    `,
+    price: 35,
+    stock: 43,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/frihult-wall-lamp-stainless-steel-colour__0744299_pe743210_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/frihult-wall-lamp-stainless-steel-colour__1052390_pe846070_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/frihult-wall-lamp-stainless-steel-colour__0689555_pe723047_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+  {
+    name: "Dalkarlsberg",
+    "short-description": `The glass shade provides a diffused and decorative light.`,
+    description: `A stylish glass and chrome lamp. Modern lighting for an entire home that creates a nice atmosphere. Use it as a standalone eye-catcher or mix it with other lamps in the series.`,
+    details: `
+    <ul>
+      <li>Max.: 7 W</li>
+      <li>Base diameter: 30 cm</li>
+      <li>Height: 158 cm</li>
+      <li>Cord length: 200 cm</li>
+    </ul>
+    `,
+    price: 89,
+    stock: 22,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/simrishamn-floor-lamp-chrome-plated-opal-white-glass__0789445_pe763989_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/simrishamn-floor-lamp-chrome-plated-opal-white-glass__0963363_ph170744_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/simrishamn-floor-lamp-chrome-plated-opal-white-glass__0789444_pe763990_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 4,
+  },
+
+  /*********************** OFFICE ***********************/
+
+  {
+    name: "Trotten",
+    "short-description": `Small desk that fits in every space - at your office or at home. The A shape of the legs is a smart design feature that allows you to use all the space under the desk for your office chair and storage.`,
+    description: `The neat and small Trotten desk is ideal to use in tight workspaces at home or at the office.
+    The neutral beige colour is kind to your eyes when you work on your laptop since it makes the contrasts between the screen and tabletop softer.
+    Thanks to the flexibility of the desk, it's a great workspace for one person, and by combining several desks you can create an efficient area for meetings, collaborating on projects or brainstorming.`,
+    details: `
+    <ul>
+      <li>Depth: 70 cm</li>
+      <li>Free height under furniture: 73 cm</li>
+      <li>Height: 75 cm</li>
+      <li>Max. load: 50 kg</li>
+      <li>Width: 120 cm</li>
+    </ul>
+    `,
+    price: 99,
+    stock: 19,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/trotten-desk-beige-anthracite__1012700_pe828979_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/trotten-desk-beige-anthracite__1080633_pe858122_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/trotten-desk-beige-anthracite__1021235_pe832079_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 5,
+  },
+  {
+    name: "Lagkapten",
+    "short-description": `You can fit more than you think in a limited area. Lagkapten wall-mounted storage system is easy to mount and takes care of all your clothes and shoes in the bedroom and in smaller walk-in wardrobes.`,
+    description: `Lagkapten trouser hanger makes it easier to keep track of your trousers and find your favourite pair in the morning.
+    You can always adapt or complete this open storage solution as needed. Maybe the combination we've suggested is perfect for you, or you can easily create your own.`,
+    details: `
+    <ul>
+      <li>Width: 187.0 cm</li>
+      <li>Depth: 62.0 cm</li>
+      <li>Height: 200.6 cm</li>
+    </ul>
+    `,
+    price: 165,
+    stock: 18,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/boaxel-lagkapten-shelving-unit-with-table-top-white__1041720_pe841126_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/boaxel-lagkapten-shelving-unit-with-table-top-white__1046724_pe843103_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/boaxel-lagkapten-shelving-unit-with-table-top-white__1046728_pe843106_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 5,
+  },
+  {
+    name: "Alefjäll",
+    "short-description": `The genuine grain leather is a treat in terms of softness and comfort - also both seat and back are tilt- and height-adjustable to give you maximum support.`,
+    description: `The safety castors have a pressure-sensitive brake mechanism that keeps the chair in place when you stand up, and releases automatically when you sit down.
+    Seat and backrest are adjustable in height and give you maximum support regardless of your body height.
+    You get good support for your thighs and back since the seat depth is adjustable.
+    You can lean back with perfect balance, as the tilt tension mechanism automatically adjusts the resistance to suit your weight and movements.`,
+    details: `
+    <ul>
+      <li>Tested for: 110 kg</li>
+      <li>Width: 64 cm</li>
+      <li>Depth: 64 cm</li>
+      <li>Max. height: 95 cm</li>
+      <li>Seat width: 51 cm</li>
+      <li>Seat depth: 42 cm</li>
+      <li>Min. seat height: 45 cm</li>
+      <li>Max. seat height: 56 cm</li>
+    </ul>
+    `,
+    price: 299,
+    stock: 15,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/alefjall-office-chair-glose-black__0724715_pe734598_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/alefjall-office-chair-glose-black__0853041_pe709349_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/alefjall-office-chair-glose-black__0982773_ph176182_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 5,
+  },
+  {
+    name: "Idåsen",
+    "short-description": `This sturdy desk is guaranteed to outlast years of coffee and hard work. You get a generous work surface and a clever solution to keep cables in place underneath.`,
+    description: `You can easily adjust the height of the desk between 63 and 127 cm by using the handle to get the best position for both sitting and standing.
+    It's easy to keep your desk neat and tidy with the cable management net under the table top.
+    The veneer surface is durable, stain resistant and easy to keep clean.`,
+    details: `
+    <ul>
+      <li>Length: 160 cm</li>
+      <li>Width: 80 cm</li>
+      <li>Min. height: 63 cm</li>
+      <li>Max. height: 127 cm</li>
+      <li>Max. load: 70 kg</li>
+    </ul>
+    `,
+    price: 649,
+    stock: 9,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/idasen-desk-sit-stand-black-beige__0734938_pe739672_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/idasen-desk-sit-stand-black-beige__0855478_pe709497_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/idasen-desk-sit-stand-black-beige__0855482_pe715038_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 5,
+  },
+  {
+    name: "Alex",
+    "short-description": `A clean look that's easy to like and mix with other styles. Use it with a desk or - as long as you secure it to the wall - use it as a standalone. Keeps things organised and creates more space on the desk.`,
+    description: `Drawer stops prevent the drawer from being pulled out too far.`,
+    details: `
+    <ul>
+      <li>Width: 36 cm</li>
+      <li>Height: 116 cm</li>
+    </ul>
+    `,
+    price: 129,
+    stock: 34,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/alex-drawer-unit-with-9-drawers-grey-turquoise__0977780_pe813765_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/alex-drawer-unit-with-9-drawers-grey-turquoise__1043711_ph177987_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/alex-drawer-unit-with-9-drawers-grey-turquoise__0995615_pe821787_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 5,
+  },
+  {
+    name: "Uppsala",
+    "short-description": `Uppsala double-sided cabinet with open and closed storage is accessible from both sides - perfect as a room divider. You can create a workshop space by mounting Uppsala notice board to the cabinet.`,
+    description: `The freestanding cabinet is perfect to use as a divider between different activities in the same room. Creates privacy without blocking the workspace entirely and is great for small and large areas.
+    The back wall of the cabinet can be mounted to the back or middle of the cabinet if you want the cabinet to be accessible from both sides, with sliding doors on one side and open shelves on the other.
+    The sliding doors are lockable, so you can keep your private belongings safe.`,
+    details: `
+    <ul>
+      <li>Width: 240 cm</li>
+      <li>Height: 180 cm</li>
+    </ul>
+    `,
+    price: 607,
+    stock: 12,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/trotten-cabinet-combination-anthracite__1038436_pe839675_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/trotten-cabinet-combination-anthracite__1038437_pe839676_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/trotten-cabinet-combination-anthracite__1036207_pe838362_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 5,
+  },
+  {
+    name: "Arkelstorp",
+    "short-description": `Solid wood is a durable natural material.`,
+    description: `Can be placed in the middle of a room because the back is finished.
+    Drawer stops prevent the drawers from being pulled out too far.`,
+    details: `
+    <ul>
+      <li>Width: 140 cm</li>
+      <li>Depth: 70 cm</li>
+      <li>Height: 74 cm</li>
+      <li>Free height under furniture: 69 cm</li>
+    </ul>
+    `,
+    price: 229,
+    stock: 28,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/arkelstorp-desk-black__0735967_pe740301_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/arkelstorp-desk-black__0939545_ph171072_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/arkelstorp-desk-black__0849208_pe565265_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 5,
+  },
+  {
+    name: "Järvfjället",
+    "short-description": `All bodies are different. Järvfjället swivel chair is designed so that you can adjust the headrest, lumbar support, armrests and the seat height and depth to best suit your body height and shape.`,
+    description: `Your back gets the support it needs because the seat depth can be adjusted and the chair has built-in lumbar support.
+    You can adjust the headrest and the lumbar support to suit you and your needs.
+    Give your arms a comfortable support since the armrests can be adjusted upwards/downwards and forwards/backwards.`,
+    details: `
+    <ul>
+      <li>Depth: 68 cm</li>
+      <li>Max. height: 140 cm</li>
+      <li>Max. seat height: 56 cm</li>
+      <li>Min. seat height: 45 cm</li>
+      <li>Seat depth: 46 cm</li>
+      <li>Seat width: 52 cm</li>
+      <li>Tested for: 110 kg</li>
+      <li>Width: 68 cm</li>
+    </ul>
+    `,
+    price: 249,
+    stock: 30,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/jarvfjallet-office-chair-with-armrests__1009906_pe827773_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/jarvfjallet-office-chair-with-armrests__1109489_pe870022_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/jarvfjallet-office-chair-with-armrests__1109487_pe870020_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 5,
+  },
+
+  /*********************** BEDS ***********************/
+
+  {
+    name: "Malm",
+    "short-description": `A clean design with solid wood veneer. Place the bed freestanding or with the headboard against a wall. You also get spacious storage boxes that roll out smoothly on castors.`,
+    description: `Malm bed storage boxes work perfectly with Malm bed frame. They fit neatly into the space under the bed and will be flush against sides.
+    Wood veneer gives you the same look, feel and beauty as solid wood with unique variations in grain, colour and texture.
+    You can sit up comfortably in bed thanks to the high headboard - just prop some pillows behind your back and you will have a comfortable place to read or watch TV.`,
+    details: `
+    <ul>
+      <li>Height of drawer (inside): 15 cm</li>
+      <li>Length: 209 cm</li>
+      <li>Width: 196 cm</li>
+      <li>Width of drawer (inside): 97 cm</li>
+      <li>Depth of drawer (inside): 59 cm</li>
+      <li>Footboard height: 38 cm</li>
+      <li>Headboard height: 100 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 180 cm</li>
+      <li>Height: 100 cm</li>
+    </ul>
+    `,
+    price: 519,
+    stock: 16,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/malm-bed-frame-high-w-4-storage-boxes-black-brown-leirsund__0637597_pe698414_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/malm-bed-frame-high-w-4-storage-boxes-black-brown-leirsund__1101552_pe866728_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/malm-bed-frame-high-w-4-storage-boxes-black-brown-leirsund__0735708_pe740106_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 6,
+  },
+  {
+    name: "Lommedalen",
+    "short-description": `Like a hotel, but at home. Traditional details such as quilted stitching and turned legs, together with a soft, comfy headboard, make this spacious continental bed an inviting centrepiece in your bedroom.`,
+    description: `The thick, padded headboard helps you create a hotel feel at home. Beautiful to look at, and soft and comfortable to lean on when reading or having breakfast in bed.
+    The bed has an inviting, well-made and traditional expression thanks to the quilted stitching and tufting.
+    The headboard is upholstered all the way around, making the bed perfect to place in the centre of the room.`,
+    details: `
+    <ul>
+      <li>Length: 210 cm</li>
+      <li>Width: 160 cm</li>
+      <li>Height: 120 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 160 cm</li>
+    </ul>
+    `,
+    price: 1898,
+    stock: 4,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/lommedalen-divan-bed-vatnestrom-firm-tistedal-skiftebo-light-beige__0918135_pe786061_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/lommedalen-divan-bed-vatnestrom-firm-tistedal-skiftebo-light-beige__0936887_pe793454_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/lommedalen-divan-bed-vatnestrom-firm-tistedal-skiftebo-light-beige__0918154_pe786080_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 6,
+  },
+  {
+    name: "Hemnes",
+    "short-description": `Practical storage for an extra pillow, quilt or bedspread.`,
+    description: `Made of solid wood, which is a hardwearing and warm natural material.
+    Adjustable bed sides allow you to use mattresses of different thicknesses.
+    The 4 large drawers give you an extra storage space under the bed.`,
+    details: `
+    <ul>
+      <li>Length: 211 cm</li>
+      <li>Width: 194 cm</li>
+      <li>Footboard height: 66 cm</li>
+      <li>Headboard height: 120 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 180 cm</li>
+      <li>Height of drawer (inside): 18 cm</li>
+      <li>Height: 120 cm</li>
+      <li>Depth of drawer (inside): 64 cm</li>
+    </ul>
+    `,
+    price: 579,
+    stock: 17,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/hemnes-bed-frame-with-4-storage-boxes-black-brown-leirsund__0948874_pe799343_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/hemnes-bed-frame-with-4-storage-boxes-black-brown-leirsund__1101564_pe866739_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/hemnes-bed-frame-with-4-storage-boxes-black-brown-leirsund__1101565_pe866740_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 6,
+  },
+  {
+    name: "Flekke",
+    "short-description": `The backrest mounts on the right or the left side of the day-bed.`,
+    description: `With some soft, fluffy pillows as back support, you easily transform this day bed into a comfortable sofa or chaise longue.
+    Transform your sofa into a single bed in no time and maximise the use of floor space. Perfect for a teenager's bedroom or where you don't have a lot of space.`,
+    details: `
+    <ul>
+      <li>Length: 207 cm</li>
+      <li>Width: 88 cm</li>
+      <li>Height: 86 cm</li>
+      <li>Bed width: 169 cm</li>
+      <li>Bed length: 207 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 80 cm</li>
+    </ul>
+    `,
+    price: 429,
+    stock: 17,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/flekke-day-bed-w-2-drawers-2-mattresses-white-asvang-firm__1162511_pe889845_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/flekke-day-bed-w-2-drawers-2-mattresses-white-asvang-firm__1101304_pe866573_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/flekke-day-bed-w-2-drawers-2-mattresses-white-asvang-firm__0734594_pe739523_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 6,
+  },
+  {
+    name: "Brimnes",
+    "short-description": `When you live in a small space you need to be clever. That's probably why you're looking at this bed frame with 4 spacious drawers. The BRIMNES series has several heroes that help you save space.`,
+    description: `Ample storage space is hidden neatly under the bed in 4 large drawers. Perfect for storing quilts, pillows and bed linen.
+    This compact bed frame fits easily in tight spaces and under low ceilings, allowing you to maximise the space in your bedroom.
+    This versatile bed frame will look great with your choice of textiles and bedroom furniture.`,
+    details: `
+    <ul>
+      <li>Height of drawer (inside): 20 cm</li>
+      <li>Length: 206 cm</li>
+      <li>Width: 186 cm</li>
+      <li>Height: 47 cm</li>
+      <li>Width of drawer (inside): 94 cm</li>
+      <li>Depth of drawer (inside): 54 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 180 cm</li>
+    </ul>
+    `,
+    price: 379,
+    stock: 20,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/brimnes-bed-frame-with-storage-white-leirsund__0637515_pe698352_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/brimnes-bed-frame-with-storage-white-leirsund__0800869_ph163683_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/brimnes-bed-frame-with-storage-white-leirsund__1101953_pe866879_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 6,
+  },
+  {
+    name: "Kongsfjord",
+    "short-description": `Dressed in velvet from top-to-toe. From the quilted headboard with fabric-covered buttons to the supple, pocket sprung mattress that gets every muscle to relax. A pure pleasure for both body and soul.`,
+    description: `If you read or watch TV in bed the soft headboard is comfortable to lean against.
+    Velvet is a soft, luxurious fabric that is resistant to abrasion and easy to clean using the soft brush attachment on your vacuum.
+    The velvet is woven from viscose and polyester, which makes it durable.
+    Natural materials in the mattress pad and mattress, like natural latex, cotton and wool provides extra comfort, wicks away moisture and gives a very pleasant sleeping environment with an even temperature.`,
+    details: `
+    <ul>
+      <li>Length: 217 cm</li>
+      <li>Width: 180 cm</li>
+      <li>Height: 139 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 180 cm</li>
+    </ul>
+    `,
+    price: 2248,
+    stock: 3,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/kongsfjord-divan-bed-vatnestrom-medium-firm-tistedal-djuparp-dark-olive-green__1034033_pe837524_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kongsfjord-divan-bed-vatnestrom-medium-firm-tistedal-djuparp-dark-olive-green__1033968_pe837517_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/kongsfjord-divan-bed-vatnestrom-medium-firm-tistedal-djuparp-dark-olive-green__1033970_pe837515_s5.jpg?f=xl",
+    ],
+    featured: true,
+    categoryId: 6,
+  },
+  {
+    name: "Idanäs",
+    "short-description": `Idanäs bed frame with storage is both eyecatching and practical. The built-in drawers make use of the space under your bed, and are also soft-closing. The timeless design is easy to love for a long time.`,
+    description: `4 spacious drawers under the bed make the best use of the space. They are great for storing extra quilts, pillows and bed linens - or your clothes.
+    The drawers close silently and softly, thanks to the integrated soft-closing function.
+    The bed has a strong and sturdy construction that allows you to use it for many years.`,
+    details: `
+    <ul>
+      <li>Footboard height: 63 cm</li>
+      <li>Headboard height: 112 cm</li>
+      <li>Length: 209 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 160 cm</li>
+      <li>Width: 176 cm</li>
+    </ul>
+    `,
+    price: 509,
+    stock: 11,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/idanas-bed-frame-with-storage-dark-brown-lonset__0916074_pe784950_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/idanas-bed-frame-with-storage-dark-brown-lonset__1101589_pe866763_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/idanas-bed-frame-with-storage-dark-brown-lonset__0939181_pe794435_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 6,
+  },
+  {
+    name: "Sandviken",
+    "short-description": `Practical storage for an extra pillow, quilt or bedspread.`,
+    description: `Made of solid wood, which is a hardwearing and warm natural material.
+    Adjustable bed sides allow you to use mattresses of different thicknesses.
+    2 large storage boxes under the bed give you a lot of extra storage space.`,
+    details: `
+    <ul>
+      <li>Length: 211 cm</li>
+      <li>Width: 104 cm</li>
+      <li>Footboard height: 66 cm</li>
+      <li>Headboard height: 112 cm</li>
+      <li>Mattress length: 200 cm</li>
+      <li>Mattress width: 90 cm</li>
+      <li>Height of drawer (inside): 18 cm</li>
+      <li>Height: 112 cm</li>
+    </ul>
+    `,
+    price: 319,
+    stock: 18,
+    images: [
+      "https://www.ikea.com/nl/en/images/products/hemnes-bed-frame-with-2-storage-boxes-black-brown-leirsund__0948864_pe799335_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/hemnes-bed-frame-with-2-storage-boxes-black-brown-leirsund__1101541_pe866720_s5.jpg?f=xl",
+      "https://www.ikea.com/nl/en/images/products/hemnes-bed-frame-with-2-storage-boxes-black-brown-leirsund__1101568_pe866743_s5.jpg?f=xl",
+    ],
+    featured: false,
+    categoryId: 6,
+  },
 ];
 
 module.exports = async () => await Product.bulkCreate(products);
