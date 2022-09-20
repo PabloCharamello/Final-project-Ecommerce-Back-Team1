@@ -1,5 +1,10 @@
 const { Product } = require("../models");
 const { Op } = require("sequelize");
+const fs = require("fs");
+const path = require("path");
+const formidable = require("formidable");
+const PassThrough = require("node:stream");
+const Supabase = require("@supabase/supabase-js");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -22,17 +27,33 @@ async function show(req, res) {
   }
 }
 
+const supabase = Supabase.createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+
 // Store a newly created resource in storage.
 async function store(req, res) {
-  try {
-    console.log(req.body);
-    const data = req.body;
-    data.stock = parseInt(data.stock);
-    await Product.create(data);
-    res.status(200).json({ message: "product created" });
-  } catch (error) {
-    return res.status(500).json({ message: error });
-  }
+  const form = formidable({
+    keepExtensions: true,
+  });
+
+  form.parse(req, async (err, fields, files) => {
+    const rawData = fs.createReadStream(files.image1.filepath);
+    const { data, error } = await supabase.storage
+      .from("product-images")
+      .upload(`public/${files.image1.newFilename}`, rawData, {
+        contentType: files.image1.mimetype,
+      });
+    if (error) return res.status(500).json({ message: error });
+    try {
+      fields.stock = parseInt(fields.stock);
+      fields.images = [`${process.env.SUPABASE_BUCKET_URL}${data.Key}`];
+      await Product.create(fields);
+      return res.status(200).json({ message: "product created" });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: error });
+    }
+    return res.status(200).json({ message: "error" });
+  });
 }
 
 // Update the specified resource in storage.
