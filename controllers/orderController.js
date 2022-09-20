@@ -1,11 +1,11 @@
-const { Order, User } = require("../models");
+const { Order, User, Address } = require("../models");
 
 async function index(req, res) {
   if (req.query.userId) {
     if (!req.auth.isAdmin && req.auth.sub != req.query.userId) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    const orders = await Order.findAll({ where: { userId: req.auth.sub } });
+    const orders = await Order.findAll({ where: { userId: req.auth.sub }, include: Address });
     return res.json(orders);
   }
   if (!req.auth.isAdmin) {
