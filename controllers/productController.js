@@ -15,8 +15,14 @@ async function index(req, res) {
 // Display the specified resource.
 async function show(req, res) {
   try {
+    let query;
+    if (isNaN(Number(req.params.id))) {
+      query = { slug: req.params.id };
+    } else {
+      query = { id: Number(req.params.id) };
+    }
     const product = await Product.findOne({
-      where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
+      where: query,
     });
     if (!product) {
       return res.status(404).json({ message: "product not found" });
