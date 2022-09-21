@@ -20,7 +20,6 @@ async function show(req, res) {
 async function store(req, res) {
   try {
     const categoryExists = await Category.findOne({ where: { name: req.body.name } });
-    console.log(categoryExists);
     if (categoryExists) {
       return res.status(400).json({ message: "category alredy exists!" });
     }
