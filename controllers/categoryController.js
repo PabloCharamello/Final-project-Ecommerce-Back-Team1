@@ -17,7 +17,6 @@ async function show(req, res) {
       query = { id: Number(req.params.id) };
     }
     const category = await Category.findOne({ where: query });
-    console.log(category);
     const products = await Product.findAll({ where: { categoryId: category.id } });
     return res.json({ name: category.name, products });
   } catch (error) {
