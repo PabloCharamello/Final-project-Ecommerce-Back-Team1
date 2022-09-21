@@ -1,5 +1,5 @@
 const { Product } = require("../models");
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
@@ -84,8 +84,14 @@ async function destroy(req, res) {
   return res.status(200).json({ message: "product deleted" });
 }
 
-// Otros handlers...
-// ...
+async function featured(req, res) {
+  try {
+    const products = await Product.findAll({ where: { featured: true } });
+    return res.status(200).json(products);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 module.exports = {
   index,
@@ -93,4 +99,5 @@ module.exports = {
   store,
   update,
   destroy,
+  featured,
 };
