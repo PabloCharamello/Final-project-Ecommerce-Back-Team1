@@ -7,7 +7,11 @@ const routes = require("./routes");
 const APP_PORT = process.env.APP_PORT || 8000;
 const app = express();
 
-app.use(cors());
+var corsOptions = {
+  origin: "https://hackdesign.vercel.app/",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
