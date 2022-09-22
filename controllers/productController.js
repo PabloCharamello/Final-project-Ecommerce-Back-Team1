@@ -42,36 +42,29 @@ async function store(req, res) {
   });
 
   form.parse(req, async (err, fields, files) => {
-    const rawImage1 = fs.createReadStream(files.image1.filepath);
-    const { data: dataImage1, error } = await supabase.storage
-      .from("product-images")
-      .upload(`public/${files.image1.newFilename}`, rawImage1, {
-        contentType: files.image1.mimetype,
-      });
-    const rawImage2 = fs.createReadStream(files.image2.filepath);
-    const { data: dataImage2, error: error2 } = await supabase.storage
-      .from("product-images")
-      .upload(`public/${files.image2.newFilename}`, rawImage2, {
-        contentType: files.image2.mimetype,
-      });
-    const rawImage3 = fs.createReadStream(files.image3.filepath);
-    const { data: dataImage3, error: error3 } = await supabase.storage
-      .from("product-images")
-      .upload(`public/${files.image3.newFilename}`, rawImage3, {
-        contentType: files.image3.mimetype,
-      });
-    if (error || error2 || error3) {
-      console.log(error);
-      console.log(error2);
-      console.log(error3);
-      return res.status(500).json({ message: "supabase error" });
+    async function uploadImage(image) {
+      const rawImage1 = fs.createReadStream(image.filepath);
+      const { data, error } = await supabase.storage
+        .from("product-images")
+        .upload(`public/${image.newFilename}`, rawImage1, {
+          contentType: image.mimetype,
+        });
+      if (error) {
+        console.log(error);
+        return res.status(500).json({ message: error.message });
+      }
+      return data;
     }
+
+    const image1 = await uploadImage(files.image1);
+    const image2 = await uploadImage(files.image2);
+    const image3 = await uploadImage(files.image3);
     try {
       fields.stock = parseInt(fields.stock);
       fields.images = [];
-      fields.images[0] = `${process.env.SUPABASE_BUCKET_URL}${dataImage1.Key}`;
-      fields.images[1] = `${process.env.SUPABASE_BUCKET_URL}${dataImage2.Key}`;
-      fields.images[2] = `${process.env.SUPABASE_BUCKET_URL}${dataImage3.Key}`;
+      fields.images[0] = `${process.env.SUPABASE_BUCKET_URL}${image1.Key}`;
+      fields.images[1] = `${process.env.SUPABASE_BUCKET_URL}${image2.Key}`;
+      fields.images[2] = `${process.env.SUPABASE_BUCKET_URL}${image3.Key}`;
       await Product.create(fields);
       return res.status(200).json({ message: "product created" });
     } catch (error) {
