@@ -27,17 +27,6 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
     {
       sequelize,
       modelName: "order",
-      validate: {
-        checkStock: async function () {
-          const cart = this.dataValues.cart;
-          for (const product of cart["productsList"]) {
-            const productDB = await Product.findByPk(product.id);
-            if (productDB.stock < product.quantity) {
-              throw new Error("Not enough stock!");
-            }
-          }
-        },
-      },
       hooks: {
         beforeBulkCreate: async (orders, options) => {
           for (const order of orders) {
@@ -47,6 +36,9 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
             let total = 0;
             for (const product of order.cart["productsList"]) {
               const productDB = await Product.findByPk(product.id);
+              if (productDB.stock < product.quantity) {
+                throw new Error("Not enough stock!");
+              }
               productDB.stock -= product.quantity;
               productDB.save();
               total += parseFloat(product.price * product.quantity);
@@ -61,6 +53,9 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
           order.total = 0;
           for (const product of order.cart["productsList"]) {
             const productDB = await Product.findByPk(product.id);
+            if (productDB.stock < product.quantity) {
+              throw new Error("Not enough stock!");
+            }
             productDB.stock -= product.quantity;
             productDB.save();
             order.total += parseFloat(product.price * product.quantity);
