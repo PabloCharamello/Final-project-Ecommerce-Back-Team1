@@ -1,11 +1,11 @@
 const { User } = require("../models");
 async function Seeder() {
   await User.create({
-    firstname: "Sebastian",
-    lastname: "Guadalupe",
-    email: "seba@mail.com",
+    firstname: "Test",
+    lastname: "User",
+    email: "user@user",
     phone: "111111",
-    password: "password",
+    password: "user",
   });
 }
 module.exports = Seeder;
