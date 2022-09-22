@@ -31,7 +31,7 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
         beforeBulkCreate: async (orders, options) => {
           for (const order of orders) {
             order.id = uuidv4();
-            order.status = "pending";
+            order.status = "Pending";
 
             let total = 0;
             for (const product of order.cart["productsList"]) {
@@ -48,7 +48,7 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
         },
         beforeCreate: async (order, options) => {
           order.id = uuidv4();
-          order.status = "pending";
+          order.status = "Pending";
 
           order.total = 0;
           for (const product of order.cart["productsList"]) {
