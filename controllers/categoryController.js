@@ -9,11 +9,20 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const category = await Category.findOne({
-    where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
-  });
-  const products = await Product.findAll({ where: { categoryId: category.id } });
-  return res.json({ name: category.name, products });
+  try {
+    let query;
+    if (isNaN(Number(req.params.id))) {
+      query = { slug: req.params.id };
+    } else {
+      query = { id: Number(req.params.id) };
+    }
+    const category = await Category.findOne({ where: query });
+    const products = await Product.findAll({ where: { categoryId: category.id } });
+    return res.json({ name: category.name, products });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
 }
 
 // Store a newly created resource in storage.

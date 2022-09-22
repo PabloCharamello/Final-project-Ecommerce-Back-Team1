@@ -1,5 +1,5 @@
 const { Product } = require("../models");
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
@@ -15,8 +15,14 @@ async function index(req, res) {
 // Display the specified resource.
 async function show(req, res) {
   try {
+    let query;
+    if (isNaN(Number(req.params.id))) {
+      query = { slug: req.params.id };
+    } else {
+      query = { id: Number(req.params.id) };
+    }
     const product = await Product.findOne({
-      where: { [Op.or]: [{ slug: req.params.id }, { id: req.params.id }] },
+      where: query,
     });
     if (!product) {
       return res.status(404).json({ message: "product not found" });
@@ -97,8 +103,14 @@ async function destroy(req, res) {
   return res.status(200).json({ message: "product deleted" });
 }
 
-// Otros handlers...
-// ...
+async function featured(req, res) {
+  try {
+    const products = await Product.findAll({ where: { featured: true } });
+    return res.status(200).json(products);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 module.exports = {
   index,
@@ -106,4 +118,5 @@ module.exports = {
   store,
   update,
   destroy,
+  featured,
 };
