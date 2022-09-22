@@ -33,6 +33,7 @@ async function store(req, res) {
       return res.status(400).json({ message: "category alredy exists!" });
     }
     await Category.create(req.body);
+    return res.json({ message: "Category created!" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
