@@ -42,23 +42,42 @@ async function store(req, res) {
   });
 
   form.parse(req, async (err, fields, files) => {
-    const rawData = fs.createReadStream(files.image1.filepath);
-    const { data, error } = await supabase.storage
+    const rawImage1 = fs.createReadStream(files.image1.filepath);
+    const { data: dataImage1, error } = await supabase.storage
       .from("product-images")
-      .upload(`public/${files.image1.newFilename}`, rawData, {
+      .upload(`public/${files.image1.newFilename}`, rawImage1, {
         contentType: files.image1.mimetype,
       });
-    if (error) return res.status(500).json({ message: error });
+    const rawImage2 = fs.createReadStream(files.image2.filepath);
+    const { data: dataImage2, error: error2 } = await supabase.storage
+      .from("product-images")
+      .upload(`public/${files.image2.newFilename}`, rawImage2, {
+        contentType: files.image2.mimetype,
+      });
+    const rawImage3 = fs.createReadStream(files.image3.filepath);
+    const { data: dataImage3, error: error3 } = await supabase.storage
+      .from("product-images")
+      .upload(`public/${files.image3.newFilename}`, rawImage3, {
+        contentType: files.image3.mimetype,
+      });
+    if (error || error2 || error3) {
+      console.log(error);
+      console.log(error2);
+      console.log(error3);
+      return res.status(500).json({ message: "supabase error" });
+    }
     try {
       fields.stock = parseInt(fields.stock);
-      fields.images = [`${process.env.SUPABASE_BUCKET_URL}${data.Key}`];
+      fields.images = [];
+      fields.images[0] = `${process.env.SUPABASE_BUCKET_URL}${dataImage1.Key}`;
+      fields.images[1] = `${process.env.SUPABASE_BUCKET_URL}${dataImage2.Key}`;
+      fields.images[2] = `${process.env.SUPABASE_BUCKET_URL}${dataImage3.Key}`;
       await Product.create(fields);
       return res.status(200).json({ message: "product created" });
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: error });
     }
-    return res.status(200).json({ message: "error" });
   });
 }
 
