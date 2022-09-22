@@ -5,13 +5,17 @@ async function index(req, res) {
     if (!req.auth.isAdmin && req.auth.sub != req.query.userId) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    const orders = await Order.findAll({ where: { userId: req.auth.sub }, include: Address });
+    const orders = await Order.findAll({
+      where: { userId: req.auth.sub },
+      include: Address,
+      order: [["createdAt", "DESC"]],
+    });
     return res.json(orders);
   }
   if (!req.auth.isAdmin) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-  const orders = await Order.findAll({ include: User });
+  const orders = await Order.findAll({ include: User, order: [["createdAt", "DESC"]] });
   res.json(orders);
 }
 

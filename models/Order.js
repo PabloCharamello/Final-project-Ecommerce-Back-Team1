@@ -53,9 +53,12 @@ module.exports = (sequelize, Model, DataTypes, Product) => {
           order.total = 0;
           for (const product of order.cart["productsList"]) {
             const productDB = await Product.findByPk(product.id);
-            if (productDB.stock < product.quantity) {
-              throw new Error("Not enough stock!");
-            }
+            // if (productDB.stock < product.quantity) {
+            //   console.log(productDB);
+            //   console.log("stock: ", productDB.stock);
+            //   console.log("quantity: ", product.quantity);
+            //   throw new Error("Not enough stock!");
+            // }
             productDB.stock -= product.quantity;
             productDB.save();
             order.total += parseFloat(product.price * product.quantity);
