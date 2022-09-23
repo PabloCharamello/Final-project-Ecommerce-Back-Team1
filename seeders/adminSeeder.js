@@ -3,7 +3,7 @@ async function Seeder() {
   await Admin.create({
     firstname: "admin",
     lastname: "admin",
-    email: "admin@admin",
+    email: "admin@admin.com",
     password: "admin",
   });
 }
